@@ -14,7 +14,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--col-primary);
+  background-color: var(--col-bkg-secondary);
   color: var(--col-txt-primary);
 }
 /* Toggle button styles */

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/variables.css" />
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/landing-page.css" />
     <title>Snap Happy!</title>
   </head>
   <body>
@@ -22,7 +23,6 @@
         <!-- navbar logo -->
         <div class="navbar__logo-container">
           <a href="./index.html">
-            <!-- TODO add main logo to SRC -->
             <img
               src="./assets/icons/main-logo-shutter.svg"
               alt="main logo of the website"
@@ -61,7 +61,73 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <section class="hero">
+        <div class="hero__image-container"></div>
+        <div class="hero__content-container">
+          <h1 class="hero__content-heading">
+            Welcome to <span class="main__heading-brand">Snap Happy</span>
+          </h1>
+          <h2 class="hero__content-description">
+            Your one stop shop for all your professional photography needs!
+          </h2>
+        </div>
+      </section>
+      <section class="description">
+        <div class="description__image-container"></div>
+        <div class="description__description-container">
+          <div>
+            <p>
+              At <span>Snap Happy</span>, we pride ourselves on offering an
+              unparalleled selection of cameras to suit photographers of all
+              skill levels and styles.
+            </p>
+          </div>
+          <div>
+            <p>
+              Whether you're a seasoned professional looking for the latest
+              DSLR, a budding hobbyist exploring the world of mirrorless
+              photography, we have the perfect gear for you. Featuring top
+              brands like Canon, Nikon, Panasonic, our collection guarantees
+              exceptional quality, cutting-edge technology, and a range of price
+              points to match every budget. Discover your next camera today and
+              capture life in stunning detail!
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="brands">
+        <div class="brands__heading-container">
+          <h3>Our available brands</h3>
+        </div>
+        <div class="brands__images-container">
+          <div class="brand__image-container">
+            <img
+              class="brand-logo"
+              src="./assets/icons/canon-logo.svg"
+              alt="Canon logo"
+            />
+          </div>
+          <div class="brand__container">
+            <img
+              class="brand-logo"
+              src="./assets/icons/nikon-3-cropped.svg"
+              alt="Nikon logo"
+            />
+          </div>
+          <div class="brand__container">
+            <img
+              class="brand-logo"
+              src="./assets/icons/panasonic-cropped.svg"
+              alt="Panasonic logo"
+            />
+          </div>
+        </div>
+      </section>
+      <a href="./pages/shop.html">
+        <button>Go to Shop</button>
+      </a>
+    </main>
     <footer></footer>
     <script src="./js/app.js"></script>
   </body>

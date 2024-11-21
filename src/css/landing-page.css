@@ -1,0 +1,102 @@
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-medium);
+  padding: var(--sp-medium);
+}
+
+/* hero styles */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 1200px;
+  background-color: var(--col-bkg-secondary);
+  padding: var(--sp-medium);
+  max-width: 1200px;
+  gap: var(--sp-small);
+}
+
+.hero__image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/Hero/pexels-pixabay-414781.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: fill;
+}
+
+.hero__content-container {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.main__heading-brand {
+  font-family: MuseoModerno-regular;
+}
+/* description styles */
+
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  height: 800px;
+  background-color: var(--col-bkg-secondary);
+  padding: var(--sp-medium);
+}
+
+.description__image-container {
+  width: 50%;
+  height: 100%;
+  background-image: url("../assets/images/DSLR-example.jpg");
+  background-repeat: no-repeat;
+  background-position: 10% 55%;
+}
+
+.description__description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  padding: var(--sp-large);
+  align-items: center;
+  gap: var(--sp-small);
+}
+
+.description__description-container span {
+  font-family: MuseoModerno-regular;
+}
+/* brands styles */
+.brands {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  height: 200px;
+  background-color: var(--col-bkg-secondary);
+  padding: var(--sp-medium);
+  gap: var(--sp-small);
+}
+.brands__images-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-large);
+}
