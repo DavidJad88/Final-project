@@ -67,9 +67,6 @@ header {
   font-size: var(--si-txt-xlarge);
 }
 
-.navbar__title-container a {
-}
-
 /* links styles */
 
 .navbar__links-container {
@@ -111,6 +108,6 @@ header {
   align-items: center;
 }
 .navbar__cart {
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
 }
