@@ -1,0 +1,29 @@
+:root {
+  /* color */
+  --col-bkg-primary: #f5f5f5;
+  --col-bkg-secondary: #ffffff;
+
+  --col-txt-primary: #333333;
+  --col-txt-secondary: #ffffff;
+  --col-txt-hover: lightgray;
+
+  --col-btn-primary: #1a73e8;
+  --col-btn-hover: #0c60a7;
+
+  --col-: #ff6f00;
+  --col-deal-sticker: #6a1b9a;
+
+  /* spacing vars */
+  --sp-small: 0.5rem;
+  --sp-medium: 1rem;
+  --sp-large: 2rem;
+  --sp-xlarge: 3rem;
+
+  /* sizing vars */
+
+  --si-txt-small: 0.5rem;
+  --si-txt-base: 1rem;
+  --si-txt-medium: 1.2rem;
+  --si-txt-large: 1.5rem;
+  --si-txt-xlarge: 2rem;
+}
