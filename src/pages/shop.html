@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/variables.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/store.css" />
     <title>Snap Happy!</title>
   </head>
   <body>
@@ -61,6 +62,75 @@
         </div>
       </nav>
     </header>
+    <main>
+      <section class="shop">
+        <div class="sort-container">
+          <div class="sort__brands-container">
+            <p>Sort by brand:</p>
+            <ul class="brands__links">
+              <li class="brands__link"><button>Canon</button></li>
+              <li class="brands__link"><button>Nikon</button></li>
+              <li class="brands__link"><button>Panasonic</button></li>
+            </ul>
+          </div>
+          <div class="sort__type-container">
+            <p>Sort by type:</p>
+            <ul class="types__links">
+              <li class="types__link"><button>Cameras</button></li>
+              <li class="types__link"><button>Lenses</button></li>
+              <li class="types__link"><button>Peripherals</button></li>
+            </ul>
+          </div>
+        </div>
+        <div class="items-container">
+          <div class="items__sort-buttons-container">
+            Sort by:
+            <button class="sort-button" data-sort="all">All products</button>
+            <button class="sort-button" data-sort="price-high">
+              Price high to low
+            </button>
+            <button class="sort-button" data-sort="price-low">
+              Price low to high
+            </button>
+            <button class="sort-button" data-sort="deal-offer">Deals</button>
+          </div>
+          <div class="items__grid-container">
+            <div class="item-container">
+              <div class="item__image-container">
+                <img
+                  src="../assets/images/item-pictures/Canon EOS Rebel T7.jpg"
+                  alt="Canon EOS Rebel T7"
+                />
+              </div>
+              <div class="item__description-container">
+                <p>Brand: Canon</p>
+                <p>Name: Canon EOS Rebel T7</p>
+                <p>Price: $549.99</p>
+                <p>Category: DSLR</p>
+                <button class="add-to-cart-button">Add to Cart</button>
+              </div>
+              <div class="deal-offer-badge">Sale!</div>
+            </div>
+            <div class="item-container">
+              <div class="item__image-container">
+                <img
+                  src="../assets/images/item-pictures/Canon EOS Rebel T7.jpg"
+                  alt="Canon EOS Rebel T7"
+                />
+              </div>
+              <div class="item__description-container">
+                <p>Brand: Canon</p>
+                <p>Name: Canon EOS Rebel T7</p>
+                <p>Price: $549.99</p>
+                <p>Category: DSLR</p>
+                <button class="add-to-cart-button">Add to Cart</button>
+              </div>
+              <div class="deal-offer-badge">Sale!</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <script src="./js/app.js"></script>
   </body>
 </html>

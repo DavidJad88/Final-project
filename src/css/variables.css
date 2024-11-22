@@ -5,7 +5,6 @@
 
   --col-txt-primary: #333333;
   --col-txt-secondary: #ffffff;
-  --col-txt-hover: lightgray;
 
   --col-btn-primary: #1a73e8;
   --col-btn-hover: #0c60a7;
@@ -21,7 +20,8 @@
 
   /* sizing vars */
 
-  --si-txt-small: 0.5rem;
+  --si-txt-xsmall: 0.5rem;
+  --si-txt-small: 0.75rem;
   --si-txt-base: 1rem;
   --si-txt-medium: 1.2rem;
   --si-txt-large: 1.5rem;
