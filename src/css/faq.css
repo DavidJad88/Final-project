@@ -1,0 +1,116 @@
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-large);
+  margin-top: var(--sp-large);
+}
+
+.description-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--col-bkg-secondary);
+  width: 60%;
+  height: 50%;
+
+  padding: var(--sp-medium);
+  border-radius: 16px;
+  gap: var(--sp-large);
+}
+.description-container h1,
+span {
+  font-family: MuseoModerno-regular;
+}
+.description__image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  border-radius: 16px;
+}
+.description__image-container img {
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.description__content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 50%;
+  gap: var(--sp-large);
+  margin-bottom: var(--sp-large);
+  padding: var(--sp-medium);
+  border-radius: 16px;
+}
+
+/* accordion styles */
+
+.accordion-container {
+  width: 60%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  gap: var(--sp-medium);
+}
+
+.accordion__title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--sp-small);
+  cursor: pointer;
+  background-color: var(--col-bkg-secondary);
+  border-radius: 16px;
+}
+
+.accordion__title {
+  color: var(--col-txt-primary);
+}
+
+.accordion__toggle-button {
+  padding: var(--sp-small);
+  cursor: pointer;
+  border: none;
+  background-color: var(--col-btn-primary);
+  border-radius: 0.5rem;
+}
+
+.accordion__toggle-logo {
+  transition: transform 0.3 linear;
+}
+
+/* ........... */
+
+.accordion__content-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s linear;
+  background-color: var(--col-bkg-secondary);
+}
+
+.accordion__content-container--active {
+  max-height: 500px;
+}
+
+.accordion__content {
+  line-height: 1.3;
+  padding: var(--sp-small);
+}
+/* ................ */
+
+.rotate-arrow {
+  transform: rotate(180deg);
+}
