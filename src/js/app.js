@@ -144,7 +144,7 @@ const items = [
     modelName: "D3500",
     onOffer: false,
     price: 449,
-    imageUrl: "../assets/images/item-pictures/d3500",
+    imageUrl: "../assets/images/item-pictures/d3500.webp",
   },
   {
     type: "camera",
@@ -584,3 +584,63 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Tough 64GB SD Card.webp",
   },
 ];
+
+// calling items grid
+
+const itemGridContainer = document.querySelector(".items__grid-container");
+
+const sortButtons = document.querySelectorAll(".sort-button");
+const filterButtons = document.querySelectorAll(".filter-button");
+
+//render items in store window
+document.addEventListener("DOMContentLoaded", () => renderItems(items));
+
+function renderItems(itemsArray) {
+  itemGridContainer.textContent = "";
+  itemsArray.forEach((item) => {
+    const itemContainer = document.createElement("div");
+    itemContainer.classList.add("item-container");
+
+    const itemImageContainer = document.createElement("div");
+    itemImageContainer.classList.add("item__image-container");
+
+    const itemImage = document.createElement("img");
+    itemImage.src = item.imageUrl;
+
+    const ItemDescriptionContainer = document.createElement("div");
+    ItemDescriptionContainer.classList.add("item__description-container");
+
+    const brand = document.createElement("p");
+    brand.textContent = `Brand: ${item.brand}`;
+
+    const model = document.createElement("p");
+    model.textContent = `Model: ${item.modelName}`;
+
+    const price = document.createElement("p");
+    price.textContent = `Price: $${item.price}`;
+
+    const addToCartButton = document.createElement("button");
+    addToCartButton.classList.add("add-to-cart-button");
+    addToCartButton.textContent = "Add to Cart";
+
+    const dealOfferSticker = document.createElement("div");
+
+    if (item.dealOffer) {
+      dealOfferSticker.classList.add("deal-offer-badge");
+      dealOfferSticker.textContent = "Sale!";
+    }
+
+    //appending
+    itemImageContainer.append(itemImage);
+    ItemDescriptionContainer.append(
+      brand,
+      model,
+      price,
+      addToCartButton,
+      dealOfferSticker
+    );
+    itemContainer.append(itemImageContainer, ItemDescriptionContainer);
+
+    itemGridContainer.append(itemContainer);
+  });
+}
