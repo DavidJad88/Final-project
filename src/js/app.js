@@ -628,7 +628,7 @@ function renderItems(itemsArray) {
     if (item.onOffer) {
       dealOfferSticker.classList.add("deal-offer-badge");
       dealOfferSticker.textContent = "Sale!";
-      price.textContent = `Price: $${item.price * 0.75}, Was: ${item.price}`;
+      price.textContent = `Price: $${item.price * 0.75}, Was: $${item.price}`;
     }
 
     //appending
@@ -675,4 +675,25 @@ const filterItems = (event) => {
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", (e) => filterItems(e));
+});
+
+const sortItems = (event) => {
+  let sortedItems = [...items];
+
+  const sortType = event.target.dataset.sort;
+
+  if (sortType === "price-high") {
+    sortedItems = sortedItems.sort((a, b) => b.price - a.price);
+  } else if (sortType === "price-low") {
+    sortedItems = sortedItems.sort((a, b) => a.price - b.price);
+  } else if (sortType === "deal-offer") {
+    sortedItems = sortedItems.filter((items) => items.onOffer);
+  } else if (sortType === "all") {
+    sortedItems = [...items];
+  }
+  renderItems(sortedItems);
+};
+
+sortButtons.forEach((button) => {
+  button.addEventListener("click", (e) => sortItems(e));
 });
