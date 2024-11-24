@@ -625,9 +625,10 @@ function renderItems(itemsArray) {
 
     const dealOfferSticker = document.createElement("div");
 
-    if (item.dealOffer) {
+    if (item.onOffer) {
       dealOfferSticker.classList.add("deal-offer-badge");
       dealOfferSticker.textContent = "Sale!";
+      price.textContent = `Price: $${item.price * 0.75}, Was: ${item.price}`;
     }
 
     //appending
