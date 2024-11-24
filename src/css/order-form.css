@@ -1,0 +1,75 @@
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-large);
+}
+
+.form-container {
+  width: 60%;
+  /* height: auto; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  gap: var(--sp-medium);
+  margin: var(--sp-large);
+}
+
+.form__section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--col-bkg-secondary);
+  padding: var(--sp-medium);
+  border-radius: 16px;
+  line-height: 1.6;
+
+  border-color: lightgray;
+}
+
+legend {
+  font-family: MuseoModerno-regular;
+  font-size: var(--si-txt-large);
+}
+
+input {
+  border-radius: 4px;
+  padding: 4px;
+}
+
+/* cart overview */
+
+.cart {
+  display: flex;
+  width: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.cart__image-container {
+  flex-basis: 20%;
+}
+.cart__image-container img {
+  object-fit: contain;
+}

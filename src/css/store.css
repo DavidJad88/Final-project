@@ -14,7 +14,7 @@ main {
 }
 
 /* sorting-panel styles */
-.sort-container {
+.filter-container {
   width: 15%;
   display: flex;
   flex-direction: column;
@@ -24,11 +24,11 @@ main {
   text-align: center;
   background-color: var(--col-bkg-secondary);
 }
-.sort-container button {
+.filter-container button {
   width: 75%;
   border-radius: 4px;
 }
-.sort__brands-container {
+.filter__brands-container {
   display: flex;
   flex-direction: column;
 }
@@ -39,12 +39,12 @@ main {
   gap: var(--sp-small);
 }
 
-.sort-container p {
+.filter-container p {
   font-size: var(--si-txt-medium);
   margin-bottom: var(--sp-small);
 }
 
-.sort__type-container {
+.filter__type-container {
   display: flex;
   flex-direction: column;
 }
