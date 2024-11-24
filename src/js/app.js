@@ -645,3 +645,34 @@ function renderItems(itemsArray) {
     itemGridContainer.append(itemContainer);
   });
 }
+
+const filterItems = (event) => {
+  let filteredItems = [...items];
+
+  const sortType = event.target.dataset.sort;
+
+  if (sortType === "cameras") {
+    filteredItems = filteredItems.filter((items) => items.type === "camera");
+  } else if (sortType === "lenses") {
+    filteredItems = filteredItems.filter((items) => items.type === "lens");
+  } else if (sortType === "peripherals") {
+    filteredItems = filteredItems.filter(
+      (items) => items.type === "peripheral"
+    );
+  } else if (sortType === "canon") {
+    filteredItems = filteredItems.filter((items) => items.brand === "Canon");
+  } else if (sortType === "nikon") {
+    filteredItems = filteredItems.filter((items) => items.brand === "Nikon");
+  } else if (sortType === "panasonic") {
+    filteredItems = filteredItems.filter(
+      (items) => items.brand === "Panasonic"
+    );
+  } else if (sortType === "all") {
+    filteredItems = [...items];
+  }
+  renderItems(filteredItems);
+};
+
+filterButtons.forEach((button) => {
+  button.addEventListener("click", (e) => filterItems(e));
+});

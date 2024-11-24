@@ -28,31 +28,23 @@ main {
   width: 75%;
   border-radius: 4px;
 }
-.filter__brands-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.brands__links {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-small);
-}
 
 .filter-container p {
   font-size: var(--si-txt-medium);
   margin-bottom: var(--sp-small);
 }
 
-.filter__type-container {
+.filter__brands-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: var(--sp-medium);
 }
-
-.types__links {
+.filter__types-container {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-small);
+  align-items: center;
+  gap: var(--sp-medium);
 }
 
 /* items-panel styles */

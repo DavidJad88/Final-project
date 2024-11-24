@@ -66,20 +66,24 @@
       <section class="shop">
         <div class="filter-container">
           <div class="filter__brands-container">
-            <p>Sort by brand:</p>
-            <ul class="brands__links">
-              <li class="filter-button"><button>Canon</button></li>
-              <li class="filter-button"><button>Nikon</button></li>
-              <li class="filter-button"><button>Panasonic</button></li>
-            </ul>
+            <p>Filter by brand:</p>
+            <button class="filter-button" data-sort="canon">Canon</button>
+            <button class="filter-button" data-sort="nikon">Nikon</button>
+            <button class="filter-button" data-sort="panasonic">
+              Panasonic
+            </button>
           </div>
-          <div class="filter__type-container">
-            <p>Sort by type:</p>
-            <ul class="types__links">
-              <li class="filter-button"><button>Cameras</button></li>
-              <li class="filter-button"><button>Lenses</button></li>
-              <li class="filter-button"><button>Peripherals</button></li>
-            </ul>
+          <div class="filter__types-container">
+            <p>Filter by type:</p>
+            <button class="filter-button" data-sort="cameras">Cameras</button>
+            <button class="filter-button" data-sort="lenses">Lenses</button>
+            <button class="filter-button" data-sort="peripherals">
+              Peripherals
+            </button>
+          </div>
+          <div class="filter__reset-container">
+            <p>-------</p>
+            <button class="filter-button" data-sort="all">Reset Filters</button>
           </div>
         </div>
         <div class="items-container">
