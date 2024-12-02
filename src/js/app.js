@@ -615,6 +615,7 @@ links.forEach((link) => {
 //render items in store window
 document.addEventListener("DOMContentLoaded", () => renderItems(items));
 
+//Function for rendering itens on DOMcontentloaded
 function renderItems(itemsArray) {
   itemGridContainer.textContent = "";
   itemsArray.forEach((item) => {
@@ -666,6 +667,10 @@ function renderItems(itemsArray) {
   });
 }
 
+//container for filtered items to use on sort function, replaced in filterItems function
+let lastFilteredItems = [...items];
+
+//filter items
 const filterItems = (event) => {
   let filteredItems = [...items];
 
@@ -691,14 +696,18 @@ const filterItems = (event) => {
     filteredItems = [...items];
   }
   renderItems(filteredItems);
+
+  lastFilteredItems = filteredItems;
 };
 
+//Event listener for filter buttons
 filterButtons.forEach((button) => {
   button.addEventListener("click", (e) => filterItems(e));
 });
 
+//Sort function based on applied filters
 const sortItems = (event) => {
-  let sortedItems = [...items];
+  let sortedItems = [...lastFilteredItems];
 
   const sortType = event.target.dataset.sort;
 
@@ -713,6 +722,8 @@ const sortItems = (event) => {
   }
   renderItems(sortedItems);
 };
+
+//Event listener for sort buttons
 
 sortButtons.forEach((button) => {
   button.addEventListener("click", (e) => sortItems(e));
