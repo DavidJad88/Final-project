@@ -1,6 +1,7 @@
 const items = [
   // Canon Cameras
   {
+    id: 1,
     type: "camera",
     brand: "Canon",
     modelName: "EOS R5",
@@ -9,6 +10,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/EOS R5.jpg",
   },
   {
+    id: 2,
     type: "camera",
     brand: "Canon",
     modelName: "EOS R6",
@@ -17,6 +19,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/EOS R6.jpg",
   },
   {
+    id: 3,
     type: "camera",
     brand: "Canon",
     modelName: "EOS 5D Mark IV",
@@ -25,6 +28,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/EOS 5D Mark IV.webp",
   },
   {
+    id: 4,
     type: "camera",
     brand: "Canon",
     modelName: "EOS 90D",
@@ -32,15 +36,9 @@ const items = [
     price: 1199,
     imageUrl: "../assets/images/item-pictures/EOS 90D.jpg",
   },
-  //   {
-  //     type: "camera",
-  //     brand: "Canon",
-  //     modelName: "EOS M50 Mark II",
-  //     onOffer: false,
-  //     price: 699,
-  //     imageUrl: "../assets/images/item-pictures/",
-  //   },
+
   {
+    id: 5,
     type: "camera",
     brand: "Canon",
     modelName: "EOS Rebel T7",
@@ -49,6 +47,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/EOS Rebel T7.jpg",
   },
   {
+    id: 6,
     type: "camera",
     brand: "Canon",
     modelName: "EOS R3",
@@ -57,6 +56,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/EOS R3.jpg",
   },
   {
+    id: 7,
     type: "camera",
     brand: "Canon",
     modelName: "EOS 1DX Mark III",
@@ -64,15 +64,9 @@ const items = [
     price: 6499,
     imageUrl: "../assets/images/item-pictures/EOS 1DX Mark III.webp",
   },
-  //   {
-  //     type: "camera",
-  //     brand: "Canon",
-  //     modelName: "EOS RP",
-  //     onOffer: true,
-  //     price: 999,
-  //     imageUrl: "../assets/images/item-pictures/",
-  //   },
+
   {
+    id: 8,
     type: "camera",
     brand: "Canon",
     modelName: "EOS R8",
@@ -83,6 +77,7 @@ const items = [
 
   // Nikon Cameras
   {
+    id: 9,
     type: "camera",
     brand: "Nikon",
     modelName: "Z9",
@@ -91,6 +86,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Z9.jpg",
   },
   {
+    id: 10,
     type: "camera",
     brand: "Nikon",
     modelName: "Z7 II",
@@ -99,6 +95,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Z7 II.webp",
   },
   {
+    id: 11,
     type: "camera",
     brand: "Nikon",
     modelName: "Z6 II",
@@ -107,6 +104,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Z6 II.webp",
   },
   {
+    id: 12,
     type: "camera",
     brand: "Nikon",
     modelName: "Z50",
@@ -115,6 +113,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Z50.jpg",
   },
   {
+    id: 13,
     type: "camera",
     brand: "Nikon",
     modelName: "Z30",
@@ -123,6 +122,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Z30.jpg",
   },
   {
+    id: 14,
     type: "camera",
     brand: "Nikon",
     modelName: "D850",
@@ -131,6 +131,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/D850.webp",
   },
   {
+    id: 15,
     type: "camera",
     brand: "Nikon",
     modelName: "D780",
@@ -139,6 +140,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/D780.webp",
   },
   {
+    id: 16,
     type: "camera",
     brand: "Nikon",
     modelName: "D3500",
@@ -147,6 +149,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/d3500.webp",
   },
   {
+    id: 17,
     type: "camera",
     brand: "Nikon",
     modelName: "D6",
@@ -155,6 +158,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/D6.webp",
   },
   {
+    id: 18,
     type: "camera",
     brand: "Nikon",
     modelName: "Zfc",
@@ -165,6 +169,7 @@ const items = [
 
   // Panasonic Cameras
   {
+    id: 19,
     type: "camera",
     brand: "Panasonic",
     modelName: "Lumix S5",
@@ -173,6 +178,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Lumix S5.webp",
   },
   {
+    id: 20,
     type: "camera",
     brand: "Panasonic",
     modelName: "Lumix GH6",
@@ -180,15 +186,9 @@ const items = [
     price: 2199,
     imageUrl: "../assets/images/item-pictures/Lumix GH6.jpg",
   },
-  //   {
-  //     type: "camera",
-  //     brand: "Panasonic",
-  //     modelName: "Lumix G100",
-  //     onOffer: true,
-  //     price: 749,
-  //     imageUrl: "../assets/images/item-pictures/",
-  //   },
+
   {
+    id: 21,
     type: "camera",
     brand: "Panasonic",
     modelName: "Lumix G85",
@@ -196,15 +196,9 @@ const items = [
     price: 899,
     imageUrl: "../assets/images/item-pictures/Lumix G85.jpg",
   },
-  //   {
-  //     type: "camera",
-  //     brand: "Panasonic",
-  //     modelName: "Lumix GX9",
-  //     onOffer: true,
-  //     price: 999,
-  //     imageUrl: "../assets/images/item-pictures/",
-  //   },
+
   {
+    id: 22,
     type: "camera",
     brand: "Panasonic",
     modelName: "Lumix FZ1000 II",
@@ -212,15 +206,9 @@ const items = [
     price: 899,
     imageUrl: "../assets/images/item-pictures/Lumix FZ1000 II.jpg",
   },
-  // {
-  //     type: "camera",
-  //     brand: "Panasonic",
-  //     modelName: "Lumix ZS200",
-  //     onOffer: true,
-  //     price: 699,
-  //     imageUrl: "../assets/images/item-pictures/",
-  //   },
+
   {
+    id: 23,
     type: "camera",
     brand: "Panasonic",
     modelName: "Lumix G7",
@@ -228,15 +216,8 @@ const items = [
     price: 799,
     imageUrl: "../assets/images/item-pictures/Lumix G7.jpg",
   },
-  //   {
-  //     type: "camera",
-  //     brand: "Panasonic",
-  //     modelName: "Lumix S1H",
-  //     onOffer: false,
-  //     price: 3999,
-  //     imageUrl: "../assets/images/item-pictures/",
-  //   },
   {
+    id: 24,
     type: "camera",
     brand: "Panasonic",
     modelName: "Lumix S1",
@@ -247,15 +228,16 @@ const items = [
 
   // Canon Lenses
   {
+    id: 25,
     type: "lens",
     brand: "Canon",
     modelName: "EF 50mm f/1.8 STM",
     onOffer: true,
     price: 125,
-
     imageUrl: "../assets/images/item-pictures/EF 50mm 1.8 STM.jpg",
   },
   {
+    id: 26,
     type: "lens",
     brand: "Canon",
     modelName: "EF 70-200mm f/2.8L IS III USM",
@@ -264,6 +246,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/EF 70-200mm f2.8L IS III USM.jpg",
   },
   {
+    id: 27,
     type: "lens",
     brand: "Canon",
     modelName: "RF 24-70mm f/2.8L IS USM",
@@ -272,6 +255,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/RF 24-70mm f2.8L IS USM.jpg",
   },
   {
+    id: 28,
     type: "lens",
     brand: "Canon",
     modelName: "EF 16-35mm f/4L IS USM",
@@ -280,6 +264,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/EF 16-35mm f4L IS USM.webp",
   },
   {
+    id: 29,
     type: "lens",
     brand: "Canon",
     modelName: "EF 85mm f/1.8 USM",
@@ -287,23 +272,8 @@ const items = [
     price: 419,
     imageUrl: "../assets/images/item-pictures/./EF 85mm f1.8 USM.jpg",
   },
-  //   {
-  //     type: "lens",
-  //     brand: "Canon",
-  //     modelName: "RF 15-35mm f/2.8L IS USM",
-  //     onOffer: false,
-  //     price: 2299,
-  //     imageUrl: "../assets/images/item-pictures/",
-  //   },
-  //   {
-  //     type: "lens",
-  //     brand: "Canon",
-  //     modelName: "EF-S 24mm f/2.8 STM",
-  //     onOffer: true,
-  //     price: 149,
-  //     imageUrl: "../assets/images/item-pictures/",
-  //   },
   {
+    id: 30,
     type: "lens",
     brand: "Canon",
     modelName: "RF 50mm f/1.2L USM",
@@ -312,6 +282,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/RF 50mm f1.2L USM.webp",
   },
   {
+    id: 31,
     type: "lens",
     brand: "Canon",
     modelName: "RF 85mm f/2 Macro IS STM",
@@ -320,6 +291,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/RF 85mm f2 Macro IS STM.webp",
   },
   {
+    id: 32,
     type: "lens",
     brand: "Canon",
     modelName: "RF 100-500mm f/4.5-7.1L IS USM",
@@ -331,15 +303,16 @@ const items = [
 
   // Nikon Lenses
   {
+    id: 33,
     type: "lens",
     brand: "Nikon",
     modelName: "AF-S DX NIKKOR 35mm f/1.8G",
     onOffer: true,
     price: 199,
-
     imageUrl: "../assets/images/item-pictures/AF-S DX NIKKOR 35mm ;1.8G.jpg",
   },
   {
+    id: 34,
     type: "lens",
     brand: "Nikon",
     modelName: "AF-S NIKKOR 50mm f/1.8G",
@@ -348,6 +321,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/AF-S NIKKOR 50mm f1.8G.webp",
   },
   {
+    id: 35,
     type: "lens",
     brand: "Nikon",
     modelName: "Z 24-70mm f/4 S",
@@ -356,6 +330,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Z 24-70mm f4 S.jpg",
   },
   {
+    id: 36,
     type: "lens",
     brand: "Nikon",
     modelName: "AF-P DX NIKKOR 10-20mm f/4.5-5.6G VR",
@@ -365,6 +340,7 @@ const items = [
       "../assets/images/item-pictures/AF-P DX NIKKOR 10-20mm f4.5-5.6G VR.jpg",
   },
   {
+    id: 37,
     type: "lens",
     brand: "Nikon",
     modelName: "Z 14-30mm f/4 S",
@@ -373,6 +349,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Z 14-30mm f4 S.jpg",
   },
   {
+    id: 38,
     type: "lens",
     brand: "Nikon",
     modelName: "Z 85mm f/1.8 S",
@@ -381,6 +358,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Z 85mm f1.8 S.jpg",
   },
   {
+    id: 39,
     type: "lens",
     brand: "Nikon",
     modelName: "AF-S DX Micro-NIKKOR 40mm f/2.8G",
@@ -390,6 +368,7 @@ const items = [
       "../assets/images/item-pictures/AF-S DX Micro-NIKKOR 40mm f2.8G.jpg",
   },
   {
+    id: 40,
     type: "lens",
     brand: "Nikon",
     modelName: "Z 70-200mm f/2.8 VR S",
@@ -398,6 +377,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Z 70-200mm f2.8 VR S.jpg",
   },
   {
+    id: 41,
     type: "lens",
     brand: "Nikon",
     modelName: "AF-S NIKKOR 24-70mm f/2.8E ED VR",
@@ -407,6 +387,7 @@ const items = [
       "../assets/images/item-pictures/AF-S NIKKOR 24-70mm f2.8E ED VR.jpg",
   },
   {
+    id: 42,
     type: "lens",
     brand: "Nikon",
     modelName: "AF-S DX NIKKOR 18-140mm f/3.5-5.6G ED VR",
@@ -418,6 +399,7 @@ const items = [
 
   //  Panasonic Lenses
   {
+    id: 43,
     type: "lens",
     brand: "Panasonic",
     modelName: "Lumix S PRO 50mm f/1.4",
@@ -426,6 +408,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Lumix S PRO 50mm f1.4.jpg",
   },
   {
+    id: 44,
     type: "lens",
     brand: "Panasonic",
     modelName: "Lumix G Vario 12-35mm f/2.8 II ASPH",
@@ -435,6 +418,7 @@ const items = [
       "../assets/images/item-pictures/Lumix G Vario 12-35mm f2.8 II ASPH.jpg",
   },
   {
+    id: 45,
     type: "lens",
     brand: "Panasonic",
     modelName: "Lumix S 20-60mm f/3.5-5.6",
@@ -443,6 +427,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Lumix S 20-60mm f3.5-5.6.jpg",
   },
   {
+    id: 46,
     type: "lens",
     brand: "Panasonic",
     modelName: "Lumix G 42.5mm f/1.7 ASPH",
@@ -451,6 +436,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Lumix G 42.5mm f1.7 ASPH.jpg",
   },
   {
+    id: 47,
     type: "lens",
     brand: "Panasonic",
     modelName: "Lumix G Macro 30mm f/2.8 ASPH",
@@ -459,6 +445,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Lumix G Macro 30mm f2.8 ASPH.jpg",
   },
   {
+    id: 48,
     type: "lens",
     brand: "Panasonic",
     modelName: "Lumix G Vario 14-140mm f/3.5-5.6 ASPH",
@@ -468,6 +455,7 @@ const items = [
       "../assets/images/item-pictures/Lumix G Vario 14-140mm f3.5-5.6 ASPH.jpg",
   },
   {
+    id: 49,
     type: "lens",
     brand: "Panasonic",
     modelName: "Lumix S 24-105mm f/4 Macro OIS",
@@ -477,6 +465,7 @@ const items = [
       "../assets/images/item-pictures/Lumix S 24-105mm f4 Macro OIS.jpg",
   },
   {
+    id: 50,
     type: "lens",
     brand: "Panasonic",
     modelName: "Lumix S PRO 70-200mm f/4 OIS",
@@ -485,6 +474,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Lumix S PRO 70-200mm f4 OIS.jpg",
   },
   {
+    id: 51,
     type: "lens",
     brand: "Panasonic",
     modelName: "Lumix S PRO 16-35mm f/4",
@@ -493,6 +483,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Lumix S PRO 16-35mm f4.jpg",
   },
   {
+    id: 52,
     type: "lens",
     brand: "Panasonic",
     modelName: "Lumix G 25mm f/1.7 ASPH",
@@ -503,6 +494,7 @@ const items = [
 
   //   // Camera Peripherals
   {
+    id: 53,
     type: "peripheral",
     brand: "SanDisk",
     modelName: "Extreme Pro 128GB SD Card",
@@ -511,6 +503,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Extreme Pro 128GB SD Card.jpg",
   },
   {
+    id: 54,
     type: "peripheral",
     brand: "Manfrotto",
     modelName: "Compact Action Tripod",
@@ -519,6 +512,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Compact Action Tripod.jpg",
   },
   {
+    id: 55,
     type: "peripheral",
     brand: "Godox",
     modelName: "TT600 Flash",
@@ -527,6 +521,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/TT600 Flash.jpg",
   },
   {
+    id: 56,
     type: "peripheral",
     brand: "Peak Design",
     modelName: "Slide Camera Strap",
@@ -535,6 +530,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Slide Camera Strap.jpg",
   },
   {
+    id: 57,
     type: "peripheral",
     brand: "Rode",
     modelName: "VideoMic Pro+",
@@ -543,6 +539,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/VideoMic Pro+.jpg",
   },
   {
+    id: 58,
     type: "peripheral",
     brand: "Lowepro",
     modelName: "ProTactic BP 450 AW II Backpack",
@@ -552,6 +549,7 @@ const items = [
       "../assets/images/item-pictures/ProTactic BP 450 AW II Backpack.jpg",
   },
   {
+    id: 59,
     type: "peripheral",
     brand: "DJI",
     modelName: "Ronin-SC Gimbal",
@@ -560,6 +558,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Ronin-SC Gimbal.jpg",
   },
   {
+    id: 60,
     type: "peripheral",
     brand: "Neewer",
     modelName: "LED Ring Light Kit",
@@ -568,6 +567,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/LED Ring Light Kit.jpg",
   },
   {
+    id: 61,
     type: "peripheral",
     brand: "Tiffen",
     modelName: "Variable ND Filter",
@@ -576,6 +576,7 @@ const items = [
     imageUrl: "../assets/images/item-pictures/Variable ND Filter.webp",
   },
   {
+    id: 62,
     type: "peripheral",
     brand: "Sony",
     modelName: "Tough 64GB SD Card",
