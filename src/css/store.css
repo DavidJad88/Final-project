@@ -135,3 +135,39 @@ main {
   right: -10px;
   top: -10px;
 }
+
+/* Cart styles */
+
+.cart-container {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  top: 0px;
+  width: 30%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--col-bkg-secondary);
+}
+
+.cart-container--active {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  top: 0px;
+  width: 30%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--col-bkg-secondary);
+}
+
+.cart__content-container {
+  display: grid;
+  width: 90%;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  border-radius: 0.5rem;
+
+  padding: var(--sp-medium) var(--sp-medium);
+  gap: var(--sp-medium);
+}

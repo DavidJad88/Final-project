@@ -88,6 +88,7 @@ header {
 
 .navbar__links a:hover {
   color: var(--col-txt-hover);
+  border-bottom: 1px solid var(--col-txt-primary);
 }
 
 .navbar__link--active {
@@ -106,6 +107,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 .navbar__cart {
   width: 32px;

@@ -585,12 +585,32 @@ const items = [
   },
 ];
 
+//calling navbar items
+const navbarLinksContainer = document.querySelector(".navbar__links");
+const links = document.querySelectorAll(".navbar__link");
+
 // calling items grid
 
 const itemGridContainer = document.querySelector(".items__grid-container");
 
 const sortButtons = document.querySelectorAll(".sort-button");
 const filterButtons = document.querySelectorAll(".filter-button");
+
+//calling add to cart button and modal for cart
+const cartIcon = document.querySelector(".navbar__cart");
+const cartContainer = document.querySelector(".cart-container");
+const cartContentContainer = document.querySelector(".cart__content-container");
+// const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+
+// toggle active navbar link
+
+links.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    links.forEach((link) => link.classList.remove("navbar__link--active"));
+    e.currentTarget.classList.add("navbar__link--active");
+    console.log(e.currentTarget.classList);
+  });
+});
 
 //render items in store window
 document.addEventListener("DOMContentLoaded", () => renderItems(items));
@@ -696,4 +716,78 @@ const sortItems = (event) => {
 
 sortButtons.forEach((button) => {
   button.addEventListener("click", (e) => sortItems(e));
+});
+
+//CART
+
+// let cartedItems = [];
+
+// function renderCart(cartArray) {
+//   cartContentContainer.textContent = "";
+//   cartArray.forEach((cartItem) => {
+//     const itemContainer = document.createElement("div");
+//     itemContainer.classList.add("item-container");
+
+//     const itemImageContainer = document.createElement("div");
+//     itemImageContainer.classList.add("item__image-container");
+
+//     const itemImage = document.createElement("img");
+//     itemImage.src = cartItem.imageUrl;
+
+//     const ItemDescriptionContainer = document.createElement("div");
+//     ItemDescriptionContainer.classList.add("item__description-container");
+
+//     const brand = document.createElement("p");
+//     brand.textContent = `Brand: ${cartItem.brand}`;
+
+//     const model = document.createElement("p");
+//     model.textContent = `Model: ${cartItem.modelName}`;
+
+//     const price = document.createElement("p");
+//     price.textContent = `Price: $${cartItem.price}`;
+
+//     const removeButton = document.createElement("button");
+//     removeButton.classList.add("remove-from-cart-button");
+//     removeButton.textContent = "Remove From Cart";
+
+//     const dealOfferSticker = document.createElement("div");
+
+//     if (cartItem.onOffer) {
+//       dealOfferSticker.classList.add("deal-offer-badge");
+//       dealOfferSticker.textContent = "Sale!";
+//       price.textContent = `Price: $${cartItem.price * 0.75}, Was: $${
+//         cartItem.price
+//       }`;
+//     }
+
+//     //appending
+//     itemImageContainer.append(itemImage);
+//     ItemDescriptionContainer.append(
+//       brand,
+//       model,
+//       price,
+//       removeButton,
+//       dealOfferSticker
+//     );
+
+//     itemContainer.append(itemImageContainer, ItemDescriptionContainer);
+
+//     cartContentContainer.append(itemContainer);
+
+//   });
+// }
+
+// //pushing selection to cartedItems
+
+// addToCartButtons.addEventListener("click", (e) =>{
+//   addToCartButtons.forEach((button) =>{
+//     button.closest("itemcontainer")
+//   })
+// })
+
+//displaying cart
+
+cartIcon.addEventListener("click", () => {
+  cartContainer.classList.toggle("cart-container--active");
+  renderCart(cartedItems);
 });
