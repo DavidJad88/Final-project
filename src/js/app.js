@@ -601,10 +601,12 @@ const filterButtons = document.querySelectorAll(".filter-button");
 const cartIcon = document.querySelector(".navbar__cart");
 const cartContainer = document.querySelector(".cart-container");
 const cartContentContainer = document.querySelector(".cart__content-container");
-// const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+const clearCartButton = document.querySelector(".cart__clear-button");
+
+//render items in store window
+document.addEventListener("DOMContentLoaded", () => renderItems(items));
 
 // toggle active navbar link
-
 links.forEach((link) => {
   link.addEventListener("click", (e) => {
     links.forEach((link) => link.classList.remove("navbar__link--active"));
@@ -612,9 +614,6 @@ links.forEach((link) => {
     console.log(e.currentTarget.classList);
   });
 });
-
-//render items in store window
-document.addEventListener("DOMContentLoaded", () => renderItems(items));
 
 //Function for rendering itens on DOMcontentloaded
 function renderItems(itemsArray) {
@@ -645,6 +644,10 @@ function renderItems(itemsArray) {
     addToCartButton.classList.add("add-to-cart-button");
     addToCartButton.textContent = "Add to Cart";
 
+    addToCartButton.addEventListener("click", () => {
+      storeCartItem(item);
+    });
+
     const dealOfferSticker = document.createElement("div");
 
     if (item.onOffer) {
@@ -654,7 +657,11 @@ function renderItems(itemsArray) {
     }
 
     //appending
+    itemGridContainer.append(itemContainer);
+    itemContainer.append(itemImageContainer, ItemDescriptionContainer);
+
     itemImageContainer.append(itemImage);
+
     ItemDescriptionContainer.append(
       brand,
       model,
@@ -662,9 +669,6 @@ function renderItems(itemsArray) {
       addToCartButton,
       dealOfferSticker
     );
-    itemContainer.append(itemImageContainer, ItemDescriptionContainer);
-
-    itemGridContainer.append(itemContainer);
   });
 }
 
@@ -731,75 +735,76 @@ sortButtons.forEach((button) => {
 });
 
 //CART
+//declaring variables
+const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-// let cartedItems = [];
+//function to store cart items in local storage
+const storeCartItem = (item) => {
+  cartItems.push(item);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  console.log(cartItems);
+};
 
-// function renderCart(cartArray) {
-//   cartContentContainer.textContent = "";
-//   cartArray.forEach((cartItem) => {
-//     const itemContainer = document.createElement("div");
-//     itemContainer.classList.add("item-container");
+//function to render cart items
+const renderCart = (items) => {
+  cartContentContainer.innerHTML = "";
+  items.forEach((item) => {
+    //creating
+    const itemContainer = document.createElement("div");
+    itemContainer.classList.add("content-item-container");
 
-//     const itemImageContainer = document.createElement("div");
-//     itemImageContainer.classList.add("item__image-container");
+    const itemImageContainer = document.createElement("div");
+    itemImageContainer.classList.add("content-item__image-container");
 
-//     const itemImage = document.createElement("img");
-//     itemImage.src = cartItem.imageUrl;
+    const itemDescriptionContainer = document.createElement("div");
+    itemDescriptionContainer.classList.add(
+      "content-item__description-container"
+    );
+    const itemImage = document.createElement("img");
+    itemImage.src = item.imageUrl;
 
-//     const ItemDescriptionContainer = document.createElement("div");
-//     ItemDescriptionContainer.classList.add("item__description-container");
+    const itemDescription = document.createElement("p");
+    itemDescription.textContent = `${item.modelName}, $${item.price}`;
 
-//     const brand = document.createElement("p");
-//     brand.textContent = `Brand: ${cartItem.brand}`;
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("content-item__delete");
+    deleteButton.textContent = "Remove";
 
-//     const model = document.createElement("p");
-//     model.textContent = `Model: ${cartItem.modelName}`;
+    //appending
+    cartContentContainer.append(itemContainer);
+    itemContainer.append(
+      itemImageContainer,
+      itemDescriptionContainer,
+      deleteButton
+    );
 
-//     const price = document.createElement("p");
-//     price.textContent = `Price: $${cartItem.price}`;
+    itemImageContainer.append(itemImage);
+    itemDescriptionContainer.append(itemDescription);
 
-//     const removeButton = document.createElement("button");
-//     removeButton.classList.add("remove-from-cart-button");
-//     removeButton.textContent = "Remove From Cart";
+    if (!cartItems.length) {
+      const cartEmpty = document.createElement("p");
+      cartEmpty.textContent = "The cart is empty";
+      cartContentContainer.append(cartEmpty);
+    }
+  });
+};
 
-//     const dealOfferSticker = document.createElement("div");
-
-//     if (cartItem.onOffer) {
-//       dealOfferSticker.classList.add("deal-offer-badge");
-//       dealOfferSticker.textContent = "Sale!";
-//       price.textContent = `Price: $${cartItem.price * 0.75}, Was: $${
-//         cartItem.price
-//       }`;
-//     }
-
-//     //appending
-//     itemImageContainer.append(itemImage);
-//     ItemDescriptionContainer.append(
-//       brand,
-//       model,
-//       price,
-//       removeButton,
-//       dealOfferSticker
-//     );
-
-//     itemContainer.append(itemImageContainer, ItemDescriptionContainer);
-
-//     cartContentContainer.append(itemContainer);
-
-//   });
-// }
-
-// //pushing selection to cartedItems
-
-// addToCartButtons.addEventListener("click", (e) =>{
-//   addToCartButtons.forEach((button) =>{
-//     button.closest("itemcontainer")
-//   })
-// })
-
-//displaying cart
-
+//displaying cart on cart icon click
 cartIcon.addEventListener("click", () => {
   cartContainer.classList.toggle("cart-container--active");
-  renderCart(cartedItems);
+  if (cartContainer.classList.contains("cart-container--active")) {
+    renderCart(cartItems);
+  }
+});
+
+clearCartButton.addEventListener("click", () => {
+  const confirmClearCart = window.confirm(
+    "Are you sure you want to clear the cart? This action cannot be undone."
+  );
+
+  if (confirmClearCart) {
+    cartItems.length = 0;
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    renderCart(cartItems);
+  }
 });
