@@ -834,11 +834,13 @@ clearCartButton.addEventListener("click", () => {
 });
 
 const renderCartIndicator = () => {
-  if (cartItems.length >= 1) {
+  const cartedItems = JSON.parse(localStorage.getItem("cartItems"));
+  if (cartedItems.length >= 1) {
     cartIndicator.style.display = "block";
-    cartIndicator.textContent = cartItems.length;
-  } else if (cartItems.length === 0) {
+    cartIndicator.textContent = cartedItems.length;
+  } else if (cartedItems.length === 0) {
     cartIndicator.style.display = "none";
+    cartEmpty.style.display = "block";
   }
 };
 renderCartIndicator();
