@@ -102,6 +102,7 @@ header {
 /* cart icon styles */
 
 .navbar__cart-container {
+  position: relative;
   width: 48px;
   height: 48px;
   display: flex;
@@ -112,4 +113,19 @@ header {
 .navbar__cart {
   width: 32px;
   height: 32px;
+}
+
+.navbar__cart-badge {
+  display: none;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  font-size: var(--si-txt-small);
+  color: var(--col-txt-secondary);
+  background-color: red;
+  border-radius: 50%;
+  padding: 3px;
 }
