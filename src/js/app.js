@@ -693,7 +693,17 @@ const filterItems = (event) => {
     button.classList.remove("filter-button--active")
   );
 
-  event.target.classList.add("filter-button--active");
+  if (event.target.dataset.sort === "all") {
+    event.target.classList.add("filter-button");
+    sortButtons.forEach((button) =>
+      button.classList.remove("sort-button--active")
+    );
+  } else {
+    event.target.classList.add("filter-button--active");
+    sortButtons.forEach((button) =>
+      button.classList.remove("sort-button--active")
+    );
+  }
 
   if (sortType === "cameras") {
     filteredItems = filteredItems.filter((items) => items.type === "camera");
@@ -734,7 +744,14 @@ const sortItems = (event) => {
     button.classList.remove("sort-button--active")
   );
 
-  event.target.classList.add("sort-button--active");
+  if (event.target.dataset.sort === "all") {
+    event.target.classList.add("sort-button");
+    filterButtons.forEach((button) =>
+      button.classList.remove("filter-button--active")
+    );
+  } else {
+    event.target.classList.add("sort-button--active");
+  }
 
   if (sortType === "price-high") {
     sortedItems = sortedItems.sort((a, b) => b.price - a.price);
