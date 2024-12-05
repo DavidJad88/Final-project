@@ -162,6 +162,8 @@ main {
   background-color: var(--col-bkg-secondary);
   justify-items: center;
   padding-top: var(--sp-medium);
+  border: 2px solid lightgray;
+  border-radius: 8px;
 }
 
 .cart__empty {
@@ -185,8 +187,9 @@ main {
   width: 100%;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid black;
-  padding-bottom: var(--sp-medium);
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: var(--sp-medium);
   gap: var(--sp-medium);
 }
 
