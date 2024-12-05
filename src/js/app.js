@@ -645,10 +645,14 @@ function renderItems(itemsArray) {
     const addToCartButton = document.createElement("button");
     addToCartButton.classList.add("add-to-cart-button");
     addToCartButton.textContent = "Add to Cart";
+    addToCartButton.setAttribute("data-id", item.id);
 
     addToCartButton.addEventListener("click", () => {
       addToCart(item);
       renderCartIndicator();
+      addToCartButton.textContent = "Added to cart";
+      addToCartButton.style.backgroundColor = "lightgray";
+      addToCartButton.style.color = "black";
     });
 
     const dealOfferSticker = document.createElement("div");
@@ -787,8 +791,11 @@ const renderCart = (items) => {
 
 //function to add item to cart on add to cart button click
 const addToCart = (item) => {
-  cartItems.push(item);
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+  if (!existingItem) {
+    cartItems.push(item);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }
 };
 
 //function to update cart after each modification so that it renders
@@ -801,25 +808,27 @@ const updateCart = (itemsArray) => {
 cartIcon.addEventListener("click", () => {
   cartContainer.classList.toggle("cart-container--active");
   if (cartContainer.classList.contains("cart-container--active")) {
-    currentCartItems = JSON.parse(localStorage.getItem("cartItems"));
-    //updateCart(currentCartItems);
+    const currentCartItems =
+      JSON.parse(localStorage.getItem("cartItems")) || [];
     renderCart(currentCartItems);
-    renderCartIndicator();
-    localStorage.setItem("cartItems", JSON.stringify(currentCartItems));
-  } else if (cartContainer.classList.contains("cart-container")) {
-    currentCartItems = JSON.parse(localStorage.getItem("cartItems"));
-    renderCart(currentCartItems);
-    renderCartIndicator();
-    localStorage.setItem("cartItems", JSON.stringify(currentCartItems));
   }
 });
 
 const removeCartItem = (id) => {
-  const items = JSON.parse(localStorage.getItem("cartItems"));
-  const remainingItems = items.filter((item) => item.id !== id);
-  localStorage.setItem("cartItems", JSON.stringify(remainingItems));
-  updateCart(remainingItems);
-  renderCart(remainingItems);
+  const updatedItems = cartItems.filter((item) => item.id !== id);
+  cartItems.length = 0;
+  cartItems.push(...updatedItems);
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+  const itemButton = document.querySelector(
+    `.add-to-cart-button[data-id="${id}"]`
+  );
+  if (itemButton) {
+    itemButton.textContent = "Add to Cart";
+    itemButton.style.backgroundColor = "";
+    itemButton.style.color = "";
+  }
+  renderCart(updatedItems);
   renderCartIndicator();
 };
 
