@@ -606,8 +606,19 @@ const clearCartButton = document.querySelector(".cart__clear-button");
 const cartEmpty = document.querySelector(".cart__empty");
 const cartTotal = document.querySelector(".cart__total");
 
+//calling checkout cart container
+const checkoutCartContainer = document.querySelector(
+  ".checkout__cart-container"
+);
+
 //render items in store window
 document.addEventListener("DOMContentLoaded", () => renderItems(items));
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => renderCheckout(cartItems),
+  () => renderCartTotal(cartItems)
+);
 
 // toggle active navbar link
 links.forEach((link) => {
@@ -816,6 +827,47 @@ const renderCart = (items) => {
     itemDescriptionContainer.append(itemDescription);
 
     deleteButton.addEventListener("click", () => removeCartItem(item.id));
+  });
+  renderCartTotal(items);
+
+  if (cartItems.length >= 1) {
+    cartEmpty.style.display = "none";
+    renderCartIndicator();
+  }
+};
+
+//function to render the cart at checkout
+const renderCheckout = (items) => {
+  checkoutCartContainer.innerHTML = "";
+  items.forEach((item) => {
+    //creating
+
+    const itemContainer = document.createElement("div");
+    itemContainer.classList.add("content-item-container");
+
+    const itemImageContainer = document.createElement("div");
+    itemImageContainer.classList.add("content-item__image-container");
+
+    const itemDescriptionContainer = document.createElement("div");
+    itemDescriptionContainer.classList.add(
+      "content-item__description-container"
+    );
+    const itemImage = document.createElement("img");
+    itemImage.src = item.imageUrl;
+
+    const itemDescription = document.createElement("p");
+    itemDescription.textContent = `${item.modelName}, $${item.price}`;
+
+    if (item.onOffer) {
+      itemDescription.textContent = `${item.modelName}, $${item.price * 0.75}`;
+    }
+
+    //appending
+    checkoutCartContainer.append(itemContainer);
+    itemContainer.append(itemImageContainer, itemDescriptionContainer);
+
+    itemImageContainer.append(itemImage);
+    itemDescriptionContainer.append(itemDescription);
   });
   renderCartTotal(items);
 
