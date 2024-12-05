@@ -689,6 +689,11 @@ const filterItems = (event) => {
   let filteredItems = [...items];
 
   const sortType = event.target.dataset.sort;
+  filterButtons.forEach((button) =>
+    button.classList.remove("filter-button--active")
+  );
+
+  event.target.classList.add("filter-button--active");
 
   if (sortType === "cameras") {
     filteredItems = filteredItems.filter((items) => items.type === "camera");
@@ -724,6 +729,12 @@ const sortItems = (event) => {
   let sortedItems = [...lastFilteredItems];
 
   const sortType = event.target.dataset.sort;
+
+  sortButtons.forEach((button) =>
+    button.classList.remove("sort-button--active")
+  );
+
+  event.target.classList.add("sort-button--active");
 
   if (sortType === "price-high") {
     sortedItems = sortedItems.sort((a, b) => b.price - a.price);
@@ -853,6 +864,13 @@ clearCartButton.addEventListener("click", () => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     renderCart(cartItems);
     renderCartIndicator();
+    renderItems(items);
+    sortButtons.forEach((button) =>
+      button.classList.remove("sort-button--active")
+    );
+    filterButtons.forEach((button) =>
+      button.classList.remove("filter-button--active")
+    );
   }
 });
 

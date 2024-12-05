@@ -24,9 +24,14 @@ main {
   text-align: center;
   background-color: var(--col-bkg-secondary);
 }
-.filter-container button {
+.filter-button {
   width: 75%;
-  border-radius: 4px;
+  height: 2rem;
+}
+
+.filter-button--active {
+  background-color: var(--col-btn-hover);
+  box-shadow: 1px 2px 1px black;
 }
 
 .filter-container p {
@@ -71,8 +76,9 @@ main {
   gap: var(--sp-large);
 }
 
-.sort-button:active {
-  color: var(--col-btn-hover);
+.sort-button--active {
+  background-color: var(--col-btn-hover);
+  box-shadow: 1px 2px 1px black;
 }
 
 /* item grid styles */
