@@ -787,7 +787,6 @@ const renderCart = (items) => {
 
 //function to add item to cart on add to cart button click
 const addToCart = (item) => {
-  const cartItems = JSON.parse(localStorage.getItem("cartItems"));
   cartItems.push(item);
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
@@ -795,8 +794,7 @@ const addToCart = (item) => {
 //function to update cart after each modification so that it renders
 const updateCart = (itemsArray) => {
   localStorage.setItem("cartItems", JSON.stringify(itemsArray));
-
-  //renderCart(cartItems);
+  renderCartIndicator();
 };
 
 //Rendering cart on cart icon click
@@ -805,9 +803,14 @@ cartIcon.addEventListener("click", () => {
   if (cartContainer.classList.contains("cart-container--active")) {
     currentCartItems = JSON.parse(localStorage.getItem("cartItems"));
     //updateCart(currentCartItems);
-    localStorage.setItem("cartItems", JSON.stringify(currentCartItems));
     renderCart(currentCartItems);
     renderCartIndicator();
+    localStorage.setItem("cartItems", JSON.stringify(currentCartItems));
+  } else if (cartContainer.classList.contains("cart-container")) {
+    currentCartItems = JSON.parse(localStorage.getItem("cartItems"));
+    renderCart(currentCartItems);
+    renderCartIndicator();
+    localStorage.setItem("cartItems", JSON.stringify(currentCartItems));
   }
 });
 
