@@ -839,21 +839,28 @@ const renderCart = (items) => {
 //function to render the cart at checkout
 const renderCheckout = (items) => {
   checkoutCartContainer.innerHTML = "";
-  items.forEach((item) => {
-    //creating
 
+  const itemsContainer = document.createElement("div");
+  itemsContainer.classList.add("checkout-cart__items-container");
+
+  const reviewMessage = document.createElement("span");
+  reviewMessage.textContent = "Please review your cart";
+  checkoutCartContainer.appendChild(reviewMessage);
+
+  items.forEach((item) => {
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("content-item-container");
 
     const itemImageContainer = document.createElement("div");
     itemImageContainer.classList.add("content-item__image-container");
 
+    const itemImage = document.createElement("img");
+    itemImage.src = item.imageUrl;
+
     const itemDescriptionContainer = document.createElement("div");
     itemDescriptionContainer.classList.add(
       "content-item__description-container"
     );
-    const itemImage = document.createElement("img");
-    itemImage.src = item.imageUrl;
 
     const itemDescription = document.createElement("p");
     itemDescription.textContent = `${item.modelName}, $${item.price}`;
@@ -862,16 +869,18 @@ const renderCheckout = (items) => {
       itemDescription.textContent = `${item.modelName}, $${item.price * 0.75}`;
     }
 
-    //appending
-    checkoutCartContainer.append(itemContainer);
+    // Appending
+    itemImageContainer.appendChild(itemImage);
+    itemDescriptionContainer.appendChild(itemDescription);
     itemContainer.append(itemImageContainer, itemDescriptionContainer);
-
-    itemImageContainer.append(itemImage);
-    itemDescriptionContainer.append(itemDescription);
+    itemsContainer.appendChild(itemContainer);
   });
+
+  checkoutCartContainer.appendChild(itemsContainer);
+
   renderCartTotal(items);
 
-  if (cartItems.length >= 1) {
+  if (items.length >= 1) {
     cartEmpty.style.display = "none";
     renderCartIndicator();
   }
