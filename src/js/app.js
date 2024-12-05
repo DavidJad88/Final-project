@@ -604,6 +604,7 @@ const cartContainer = document.querySelector(".cart-container");
 const cartContentContainer = document.querySelector(".cart__content-container");
 const clearCartButton = document.querySelector(".cart__clear-button");
 const cartEmpty = document.querySelector(".cart__empty");
+const cartTotal = document.querySelector(".cart__total");
 
 //render items in store window
 document.addEventListener("DOMContentLoaded", () => renderItems(items));
@@ -650,6 +651,7 @@ function renderItems(itemsArray) {
     addToCartButton.addEventListener("click", () => {
       addToCart(item);
       renderCartIndicator();
+      renderCart(cartItems);
       addToCartButton.textContent = "Added to cart";
       addToCartButton.style.backgroundColor = "lightgray";
       addToCartButton.style.color = "black";
@@ -783,6 +785,8 @@ const renderCart = (items) => {
 
     deleteButton.addEventListener("click", () => removeCartItem(item.id));
   });
+  renderCartTotal(items);
+
   if (cartItems.length >= 1) {
     cartEmpty.style.display = "none";
     renderCartIndicator();
@@ -795,6 +799,7 @@ const addToCart = (item) => {
   if (!existingItem) {
     cartItems.push(item);
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    renderCartTotal(cartItems);
   }
 };
 
@@ -830,6 +835,7 @@ const removeCartItem = (id) => {
   }
   renderCart(updatedItems);
   renderCartIndicator();
+  renderCartTotal(updatedItems);
 };
 
 //Event listener to clear cart button
@@ -855,5 +861,14 @@ const renderCartIndicator = () => {
     cartIndicator.style.display = "none";
     cartEmpty.style.display = "block";
   }
+};
+
+const calculateCartTotal = (items) => {
+  return items.reduce((total, item) => total + item.price, 0);
+};
+
+const renderCartTotal = (items) => {
+  const total = calculateCartTotal(items);
+  cartTotal.textContent = `Total: $${total}`;
 };
 renderCartIndicator();

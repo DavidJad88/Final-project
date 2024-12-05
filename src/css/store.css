@@ -157,8 +157,8 @@ main {
   right: 0;
   top: 0px;
   width: 30%;
-  height: 100%;
-  overflow: auto;
+  height: 100vh;
+  overflow: scroll;
   background-color: var(--col-bkg-secondary);
   justify-items: center;
   padding-top: var(--sp-medium);
@@ -175,7 +175,7 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: inherit;
+  height: auto;
   border-radius: 0.5rem;
   margin-top: var(--sp-large);
   padding: var(--sp-medium) var(--sp-medium);
