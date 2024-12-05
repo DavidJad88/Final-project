@@ -772,6 +772,10 @@ const renderCart = (items) => {
     deleteButton.classList.add("content-item__delete");
     deleteButton.textContent = "Remove";
 
+    if (item.onOffer) {
+      itemDescription.textContent = `${item.modelName}, $${item.price * 0.75}`;
+    }
+
     //appending
     cartContentContainer.append(itemContainer);
     itemContainer.append(
@@ -864,7 +868,10 @@ const renderCartIndicator = () => {
 };
 
 const calculateCartTotal = (items) => {
-  return items.reduce((total, item) => total + item.price, 0);
+  return items.reduce((total, item) => {
+    const itemPrice = item.onOffer ? item.price * 0.75 : item.price;
+    return total + itemPrice;
+  }, 0);
 };
 
 const renderCartTotal = (items) => {
