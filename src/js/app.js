@@ -423,7 +423,7 @@ const items = [
     brand: "Panasonic",
     modelName: "Lumix S 20-60mm f/3.5-5.6",
     onOffer: true,
-    price: 599.9,
+    price: 599,
     imageUrl: "../assets/images/item-pictures/Lumix S 20-60mm f3.5-5.6.jpg",
   },
   {
@@ -517,7 +517,7 @@ const items = [
     brand: "Godox",
     modelName: "TT600 Flash",
     onOffer: true,
-    price: 65.99,
+    price: 69,
     imageUrl: "../assets/images/item-pictures/TT600 Flash.jpg",
   },
   {
@@ -535,7 +535,7 @@ const items = [
     brand: "Rode",
     modelName: "VideoMic Pro+",
     onOffer: true,
-    price: 299.9,
+    price: 299,
     imageUrl: "../assets/images/item-pictures/VideoMic Pro+.jpg",
   },
   {
@@ -572,7 +572,7 @@ const items = [
     brand: "Tiffen",
     modelName: "Variable ND Filter",
     onOffer: true,
-    price: 129.9,
+    price: 129,
     imageUrl: "../assets/images/item-pictures/Variable ND Filter.webp",
   },
   {
