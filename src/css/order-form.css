@@ -15,6 +15,7 @@ main {
   align-items: center;
   justify-content: center;
   gap: var(--sp-medium);
+  margin-top: var(--sp-medium);
 }
 
 .checkout__form {
