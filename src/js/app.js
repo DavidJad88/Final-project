@@ -628,6 +628,8 @@ links.forEach((link) => {
 //Function for rendering itens on DOMcontentloaded
 function renderItems(itemsArray) {
   itemGridContainer.textContent = "";
+  const currentCartItems = JSON.parse(localStorage.getItem("cartItems"));
+
   itemsArray.forEach((item) => {
     const itemContainer = document.createElement("div");
     itemContainer.classList.add("item-container");
@@ -670,6 +672,15 @@ function renderItems(itemsArray) {
       dealOfferSticker.classList.add("deal-offer-badge");
       dealOfferSticker.textContent = "Sale!";
       price.textContent = `Price: $${item.price * 0.75}, Was: $${item.price}`;
+    }
+
+    const isInCart = currentCartItems.some(
+      (cartItem) => cartItem.id === item.id
+    );
+    if (isInCart) {
+      addToCartButton.textContent = "Added to cart";
+      addToCartButton.style.backgroundColor = "lightgray";
+      addToCartButton.style.color = "black";
     }
 
     //appending
