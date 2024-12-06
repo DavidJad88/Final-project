@@ -1,32 +1,31 @@
 main {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--sp-large);
+  /* padding: var(--sp-large); */
 }
 
-.form-container {
-  width: 60%;
-  height: 100vh;
+.checkout-container {
+  width: 80%;
+  min-height: 100vh;
   display: flex;
-
   align-items: center;
   justify-content: center;
+  gap: var(--sp-medium);
 }
 
-.form {
-  height: inherit;
+.checkout__form {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  width: 100%;
+  align-self: start;
+  width: 60%;
   gap: var(--sp-medium);
-  margin: var(--sp-large);
-  flex-basis: 75%;
 }
 
 .form__section {
@@ -51,32 +50,33 @@ input {
   padding: 4px;
 }
 
-/* cart overview */
+/* checkout cart overview */
 
-.cart-container--active {
-  display: flex;
-  flex-basis: 25%;
+.checkout__cart-container {
   height: 100%;
-  overflow: auto;
-  background-color: var(--col-bkg-secondary);
-  justify-items: center;
-  padding-top: var(--sp-medium);
-}
-
-.cart__empty {
-  display: flex;
-  margin-top: var(--sp-medium);
-}
-
-.cart__content-container {
+  min-height: 100vh;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  align-items: center;
+  justify-content: start;
+  width: 40%;
+  border-color: 2px solid lightgray;
+  border-radius: 8px;
+}
+.checkout-cart__items-container {
   height: inherit;
-  border-radius: 0.5rem;
-  margin-top: var(--sp-large);
-  padding: var(--sp-medium) var(--sp-medium);
-  gap: var(--sp-medium);
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: start;
+  width: 100%;
+  background-color: var(--col-bkg-secondary);
+  border-radius: 8px;
+  border-color: 2px solid lightgray;
+  gap: var(--sp-small);
 }
 
 .content-item-container {
@@ -84,8 +84,10 @@ input {
   width: 100%;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid black;
-  padding-bottom: var(--sp-medium);
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  border-radius: 8px;
+  padding: var(--sp-medium);
   gap: var(--sp-medium);
 }
 
@@ -100,7 +102,8 @@ input {
 .content-item__description-container {
   display: flex;
   width: 50%;
-
+  margin-left: auto;
   align-items: center;
+  justify-content: end;
   gap: var(--sp-medium);
 }

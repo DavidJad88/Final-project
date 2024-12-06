@@ -606,8 +606,19 @@ const clearCartButton = document.querySelector(".cart__clear-button");
 const cartEmpty = document.querySelector(".cart__empty");
 const cartTotal = document.querySelector(".cart__total");
 
+//calling checkout cart container
+const checkoutCartContainer = document.querySelector(
+  ".checkout__cart-container"
+);
+
 //render items in store window
 document.addEventListener("DOMContentLoaded", () => renderItems(items));
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => renderCheckout(cartItems),
+  () => renderCartTotal(cartItems)
+);
 
 // toggle active navbar link
 links.forEach((link) => {
@@ -820,6 +831,56 @@ const renderCart = (items) => {
   renderCartTotal(items);
 
   if (cartItems.length >= 1) {
+    cartEmpty.style.display = "none";
+    renderCartIndicator();
+  }
+};
+
+//function to render the cart at checkout
+const renderCheckout = (items) => {
+  checkoutCartContainer.innerHTML = "";
+
+  const itemsContainer = document.createElement("div");
+  itemsContainer.classList.add("checkout-cart__items-container");
+
+  const reviewMessage = document.createElement("span");
+  reviewMessage.textContent = "Please review your cart";
+  checkoutCartContainer.appendChild(reviewMessage);
+
+  items.forEach((item) => {
+    const itemContainer = document.createElement("div");
+    itemContainer.classList.add("content-item-container");
+
+    const itemImageContainer = document.createElement("div");
+    itemImageContainer.classList.add("content-item__image-container");
+
+    const itemImage = document.createElement("img");
+    itemImage.src = item.imageUrl;
+
+    const itemDescriptionContainer = document.createElement("div");
+    itemDescriptionContainer.classList.add(
+      "content-item__description-container"
+    );
+
+    const itemDescription = document.createElement("p");
+    itemDescription.textContent = `${item.modelName}, $${item.price}`;
+
+    if (item.onOffer) {
+      itemDescription.textContent = `${item.modelName}, $${item.price * 0.75}`;
+    }
+
+    // Appending
+    itemImageContainer.appendChild(itemImage);
+    itemDescriptionContainer.appendChild(itemDescription);
+    itemContainer.append(itemImageContainer, itemDescriptionContainer);
+    itemsContainer.appendChild(itemContainer);
+  });
+
+  checkoutCartContainer.appendChild(itemsContainer);
+
+  renderCartTotal(items);
+
+  if (items.length >= 1) {
     cartEmpty.style.display = "none";
     renderCartIndicator();
   }
