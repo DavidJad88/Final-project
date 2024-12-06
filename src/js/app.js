@@ -604,21 +604,17 @@ const cartContainer = document.querySelector(".cart-container");
 const cartContentContainer = document.querySelector(".cart__content-container");
 const clearCartButton = document.querySelector(".cart__clear-button");
 const cartEmpty = document.querySelector(".cart__empty");
-const cartTotal = document.querySelector(".cart__total");
+const cartTotal = document.querySelectorAll(".cart__total");
 
 //calling checkout cart container
 const checkoutCartContainer = document.querySelector(
   ".checkout__cart-container"
 );
 
-//render items in store window
+//rendering on page load
 document.addEventListener("DOMContentLoaded", () => renderItems(items));
-
-document.addEventListener(
-  "DOMContentLoaded",
-  () => renderCheckout(cartItems),
-  () => renderCartTotal(cartItems)
-);
+document.addEventListener("DOMContentLoaded", () => renderCheckout(cartItems));
+document.addEventListener("DOMContentLoaded", () => renderCartIndicator());
 
 // toggle active navbar link
 links.forEach((link) => {
@@ -843,9 +839,14 @@ const renderCheckout = (items) => {
   const itemsContainer = document.createElement("div");
   itemsContainer.classList.add("checkout-cart__items-container");
 
-  const reviewMessage = document.createElement("span");
+  const reviewMessage = document.createElement("div");
   reviewMessage.textContent = "Please review your cart";
-  checkoutCartContainer.appendChild(reviewMessage);
+
+  const cartTotal = document.createElement("div");
+  cartTotal.classList.add("cart__total");
+  cartTotal.textContent = "Total:";
+
+  checkoutCartContainer.append(reviewMessage, cartTotal);
 
   items.forEach((item) => {
     const itemContainer = document.createElement("div");
@@ -879,11 +880,8 @@ const renderCheckout = (items) => {
   checkoutCartContainer.appendChild(itemsContainer);
 
   renderCartTotal(items);
-
-  if (items.length >= 1) {
-    cartEmpty.style.display = "none";
-    renderCartIndicator();
-  }
+  renderCart(items);
+  renderCartIndicator();
 };
 
 //function to add item to cart on add to cart button click

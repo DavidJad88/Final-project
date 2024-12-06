@@ -78,6 +78,7 @@ input {
   border-radius: 8px;
   border-color: 2px solid lightgray;
   gap: var(--sp-small);
+  margin-top: var(--sp-large);
 }
 
 .content-item-container {
