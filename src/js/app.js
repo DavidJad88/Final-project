@@ -604,16 +604,24 @@ const cartContainer = document.querySelector(".cart-container");
 const cartContentContainer = document.querySelector(".cart__content-container");
 const clearCartButton = document.querySelector(".cart__clear-button");
 const cartEmpty = document.querySelector(".cart__empty");
-const cartTotal = document.querySelectorAll(".cart__total");
+const cartTotal = document.querySelector(".cart__total");
 
 //calling checkout cart container
 const checkoutCartContainer = document.querySelector(
   ".checkout__cart-container"
 );
+//const checkoutTotal = document.querySelector(".checkout__total");
 
 //rendering on page load
 document.addEventListener("DOMContentLoaded", () => renderItems(items));
-document.addEventListener("DOMContentLoaded", () => renderCheckout(cartItems));
+document.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname;
+  if (path.includes("order.html")) {
+    const currentCartItems =
+      JSON.parse(localStorage.getItem("cartItems")) || [];
+    renderCheckout(currentCartItems);
+  }
+});
 document.addEventListener("DOMContentLoaded", () => renderCartIndicator());
 
 // toggle active navbar link
@@ -853,11 +861,11 @@ const renderCheckout = (items) => {
   const reviewMessage = document.createElement("div");
   reviewMessage.textContent = "Please review your cart";
 
-  const cartTotal = document.createElement("div");
-  cartTotal.classList.add("cart__total");
-  cartTotal.textContent = "Total:";
+  const checkoutTotal = document.createElement("div");
+  checkoutTotal.classList.add("checkout__total");
+  checkoutTotal.textContent = "Total:";
 
-  checkoutCartContainer.append(reviewMessage, cartTotal);
+  checkoutCartContainer.append(reviewMessage, checkoutTotal);
 
   items.forEach((item) => {
     const itemContainer = document.createElement("div");
@@ -889,10 +897,8 @@ const renderCheckout = (items) => {
   });
 
   checkoutCartContainer.appendChild(itemsContainer);
-
-  renderCartTotal(items);
-  renderCart(items);
-  renderCartIndicator();
+  const currentCartItems = JSON.parse(localStorage.getItem("cartItems"));
+  renderCheckoutTotal(currentCartItems);
 };
 
 //function to add item to cart on add to cart button click
@@ -983,4 +989,13 @@ const renderCartTotal = (items) => {
   const total = calculateCartTotal(items);
   cartTotal.textContent = `Total: $${total}`;
 };
-renderCartIndicator();
+
+const renderCheckoutTotal = (items) => {
+  const total = calculateCartTotal(items);
+  const totalElement = document.querySelector(".checkout__total");
+
+  if (totalElement) {
+    totalElement.textContent = `Total: $${total.toFixed(2)}`;
+  }
+};
+// renderCartIndicator();

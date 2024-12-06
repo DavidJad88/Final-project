@@ -81,6 +81,11 @@ input {
   margin-top: var(--sp-large);
 }
 
+.checkout__total {
+  display: block;
+  text-align: right;
+}
+
 .content-item-container {
   display: flex;
   width: 100%;
