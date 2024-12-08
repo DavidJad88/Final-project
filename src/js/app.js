@@ -629,7 +629,6 @@ links.forEach((link) => {
   link.addEventListener("click", (e) => {
     links.forEach((link) => link.classList.remove("navbar__link--active"));
     e.currentTarget.classList.add("navbar__link--active");
-    console.log(e.currentTarget.classList);
   });
 });
 
@@ -681,7 +680,6 @@ function renderItems(itemsArray) {
       dealOfferSticker.textContent = "Sale!";
       price.textContent = `Price: $${item.price * 0.75}, Was: $${item.price}`;
     }
-    console.log(currentCartItems);
 
     const isInCart = currentCartItems.some(
       (cartItem) => cartItem.id === item.id
@@ -972,7 +970,7 @@ clearCartButton.addEventListener("click", () => {
 
 function renderCartIndicator() {
   const cartedItems = JSON.parse(localStorage.getItem("cartItems"));
-  console.log(cartItems);
+
   if (cartedItems) {
     if (cartedItems.length >= 1) {
       cartIndicator.style.display = "block";
@@ -993,7 +991,6 @@ function calculateCartTotal(items) {
 
 const renderCartTotal = (items) => {
   const total = calculateCartTotal(items);
-  console.log(total);
 
   cartTotal.textContent = `Total: $${total}`;
 };
