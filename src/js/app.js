@@ -880,6 +880,7 @@ const renderCheckout = (items) => {
   }
 
   const reviewMessage = document.createElement("div");
+  reviewMessage.classList.add("checkout__review");
   reviewMessage.textContent = "Please review your cart";
 
   const checkoutTotal = document.createElement("div");
@@ -893,17 +894,17 @@ const renderCheckout = (items) => {
 
   items.forEach((item) => {
     const itemContainer = document.createElement("div");
-    itemContainer.classList.add("content-item-container");
+    itemContainer.classList.add("checkout-item-container");
 
     const itemImageContainer = document.createElement("div");
-    itemImageContainer.classList.add("content-item__image-container");
+    itemImageContainer.classList.add("checkout-item__image-container");
 
     const itemImage = document.createElement("img");
     itemImage.src = item.imageUrl;
 
     const itemDescriptionContainer = document.createElement("div");
     itemDescriptionContainer.classList.add(
-      "content-item__description-container"
+      "checkout-item__description-container"
     );
 
     const itemDescription = document.createElement("p");
