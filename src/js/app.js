@@ -610,7 +610,6 @@ const cartTotal = document.querySelector(".cart__total");
 const checkoutCartContainer = document.querySelector(
   ".checkout__cart-container"
 );
-//const checkoutTotal = document.querySelector(".checkout__total");
 
 //calling form elements
 
@@ -628,21 +627,6 @@ const cardNumberInput = document.querySelector("[name='card-number']");
 const expiryDateInput = document.querySelector("[name='expiration-date']");
 const cvvInput = document.querySelector("[name='cvv']");
 const formSubmitButton = document.querySelector(".form__submit");
-
-console.log(form);
-console.log(firstNameInput);
-console.log(lastNameInput);
-console.log(streetAdressInput);
-console.log(cityInput);
-console.log(stateInput);
-console.log(zipCodeInput);
-console.log(countryInput);
-console.log(paymentMethodInput);
-console.log(billingNameInput);
-console.log(cardNumberInput);
-console.log(expiryDateInput);
-console.log(cvvInput);
-console.log(formSubmitButton);
 
 const customers = JSON.parse(localStorage.getItem("customers")) || [];
 
@@ -890,10 +874,9 @@ const renderCart = (items) => {
 
 //function to render the cart at checkout
 const renderCheckout = (items) => {
-  checkoutCartContainer.innerHTML = "";
-
-  const itemsContainer = document.createElement("div");
-  itemsContainer.classList.add("checkout-cart__items-container");
+  if (checkoutCartContainer) {
+    checkoutCartContainer.innerHTML = "";
+  }
 
   const reviewMessage = document.createElement("div");
   reviewMessage.textContent = "Please review your cart";
@@ -901,6 +884,9 @@ const renderCheckout = (items) => {
   const checkoutTotal = document.createElement("div");
   checkoutTotal.classList.add("checkout__total");
   checkoutTotal.textContent = "Total:";
+
+  const itemsContainer = document.createElement("div");
+  itemsContainer.classList.add("checkout-cart__items-container");
 
   checkoutCartContainer.append(reviewMessage, checkoutTotal);
 
@@ -933,7 +919,9 @@ const renderCheckout = (items) => {
     itemsContainer.appendChild(itemContainer);
   });
 
-  checkoutCartContainer.appendChild(itemsContainer);
+  if (checkoutCartContainer) {
+    checkoutCartContainer.appendChild(itemsContainer);
+  }
   const currentCartItems = JSON.parse(localStorage.getItem("cartItems"));
   renderCheckoutTotal(currentCartItems);
 };
