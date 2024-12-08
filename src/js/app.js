@@ -668,7 +668,9 @@ links.forEach((link) => {
 
 //Function for rendering itens on DOMcontentloaded
 function renderItems(itemsArray) {
-  itemGridContainer.textContent = "";
+  if (itemGridContainer) {
+    itemGridContainer.innerHTML = "";
+  }
   const currentCartItems = JSON.parse(localStorage.getItem("cartItems")) || []; //Fixed here
 
   itemsArray.forEach((item) => {
@@ -701,7 +703,7 @@ function renderItems(itemsArray) {
     addToCartButton.addEventListener("click", () => {
       addToCart(item);
       renderCartIndicator();
-      renderCart(currentCartItems); //Here
+      renderCart(currentCartItems);
       addToCartButton.textContent = "Added to cart";
       addToCartButton.style.backgroundColor = "lightgray";
       addToCartButton.style.color = "black";
@@ -725,7 +727,6 @@ function renderItems(itemsArray) {
     }
 
     //appending
-    itemGridContainer.append(itemContainer);
     itemContainer.append(itemImageContainer, ItemDescriptionContainer);
 
     itemImageContainer.append(itemImage);
@@ -737,6 +738,9 @@ function renderItems(itemsArray) {
       addToCartButton,
       dealOfferSticker
     );
+    if (itemGridContainer) {
+      itemGridContainer.append(itemContainer);
+    }
   });
 }
 
