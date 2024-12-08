@@ -632,14 +632,15 @@ const customers = JSON.parse(localStorage.getItem("customers")) || [];
 
 //rendering on page load
 document.addEventListener("DOMContentLoaded", () => renderItems(items));
-document.addEventListener("DOMContentLoaded", () => {
-  const path = window.location.pathname;
-  if (path.includes("order.html")) {
-    const currentCartItems =
-      JSON.parse(localStorage.getItem("cartItems")) || [];
-    renderCheckout(currentCartItems);
-  }
-});
+document.addEventListener("DOMContentLoaded", () => renderCheckout(cartItems));
+// {
+// const path = window.location.pathname;
+// if (path.includes("order.html")) {
+//   const currentCartItems =
+//     JSON.parse(localStorage.getItem("cartItems")) || [];
+//   renderCheckout(currentCartItems);
+// }
+// });
 document.addEventListener("DOMContentLoaded", () => renderCartIndicator());
 
 // toggle active navbar link
