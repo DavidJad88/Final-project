@@ -613,12 +613,7 @@ const checkoutCartContainer = document.querySelector(
 //const checkoutTotal = document.querySelector(".checkout__total");
 
 //rendering on page load
-document.addEventListener("DOMContentLoaded", () => {
-  const path = window.location.pathname;
-  if (path.includes("shop.html")) {
-    renderItems(items);
-  }
-});
+document.addEventListener("DOMContentLoaded", () => renderItems(items));
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
   if (path.includes("order.html")) {
