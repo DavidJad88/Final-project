@@ -612,6 +612,40 @@ const checkoutCartContainer = document.querySelector(
 );
 //const checkoutTotal = document.querySelector(".checkout__total");
 
+//calling form elements
+
+const form = document.querySelector(".checkout__form");
+const firstNameInput = document.querySelector("[name='first-name']");
+const lastNameInput = document.querySelector("[name='last-name']");
+const streetAdressInput = document.querySelector("[name='street-address']");
+const cityInput = document.querySelector("[name='city']");
+const stateInput = document.querySelector("[name='state']");
+const zipCodeInput = document.querySelector("[name='zip']");
+const countryInput = document.querySelector("[name='country']");
+const paymentMethodInput = document.querySelector("[name='payment-method']");
+const billingNameInput = document.querySelector("[name='billing-name']");
+const cardNumberInput = document.querySelector("[name='card-number']");
+const expiryDateInput = document.querySelector("[name='expiration-date']");
+const cvvInput = document.querySelector("[name='cvv']");
+const formSubmitButton = document.querySelector(".form__submit");
+
+console.log(form);
+console.log(firstNameInput);
+console.log(lastNameInput);
+console.log(streetAdressInput);
+console.log(cityInput);
+console.log(stateInput);
+console.log(zipCodeInput);
+console.log(countryInput);
+console.log(paymentMethodInput);
+console.log(billingNameInput);
+console.log(cardNumberInput);
+console.log(expiryDateInput);
+console.log(cvvInput);
+console.log(formSubmitButton);
+
+const customers = JSON.parse(localStorage.getItem("customers")) || [];
+
 //rendering on page load
 document.addEventListener("DOMContentLoaded", () => renderItems(items));
 document.addEventListener("DOMContentLoaded", () => {
@@ -1003,4 +1037,67 @@ function renderCheckoutTotal(items) {
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
   }
 }
-// renderCartIndicator();
+
+//checkout form submission
+
+const storeCustomerData = () => {
+  const customerFirstName = firstNameInput.value;
+  const customerLastName = lastNameInput.value;
+  const customerStreetAddress = streetAdressInput.value;
+  const customerCity = cityInput.value;
+  const customerState = stateInput.value;
+  const customerZipCode = zipCodeInput.value;
+  const customerCountry = countryInput.value;
+  const customerPaymentMethod = paymentMethodInput.value;
+  const customerBillingName = billingNameInput.value;
+  const customerCardNumber = cardNumberInput.value;
+  const customerExpiryDate = expiryDateInput.value;
+  const customerCvv = cvvInput.value;
+
+  // Retrieve cart items and calculate total
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const cartTotal = calculateCartTotal(cartItems);
+
+  //creating customer
+  const customer = {
+    id: Date.now(),
+    customerFirstName,
+    customerLastName,
+    customerStreetAddress,
+    customerCity,
+    customerState,
+    customerZipCode,
+    customerCountry,
+    customerPaymentMethod,
+    customerBillingName,
+    customerCardNumber,
+    customerExpiryDate,
+    customerCvv,
+    customerCart: {
+      items: cartItems,
+      total: cartTotal,
+    },
+  };
+
+  // Add the customer data to the array
+  const customers = JSON.parse(localStorage.getItem("customers")) || [];
+  customers.push(customer);
+
+  // Save back to localStorage
+  localStorage.setItem("customers", JSON.stringify(customers));
+
+  // Optionally clear the form and cart after submission
+  form.reset();
+  localStorage.setItem("cartItems", JSON.stringify([]));
+  renderCart([]);
+  renderCartIndicator();
+  renderCheckout([]);
+
+  console.log("Customer data saved:", customer);
+};
+
+// Event listener for form submission
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevent the default form submission behavior
+  storeCustomerData();
+});
