@@ -636,7 +636,7 @@ links.forEach((link) => {
 //Function for rendering itens on DOMcontentloaded
 function renderItems(itemsArray) {
   itemGridContainer.textContent = "";
-  const currentCartItems = JSON.parse(localStorage.getItem("cartItems"));
+  const currentCartItems = JSON.parse(localStorage.getItem("cartItems")) || []; //Fixed here
 
   itemsArray.forEach((item) => {
     const itemContainer = document.createElement("div");
@@ -668,7 +668,7 @@ function renderItems(itemsArray) {
     addToCartButton.addEventListener("click", () => {
       addToCart(item);
       renderCartIndicator();
-      renderCart(cartItems);
+      renderCart(currentCartItems); //Here
       addToCartButton.textContent = "Added to cart";
       addToCartButton.style.backgroundColor = "lightgray";
       addToCartButton.style.color = "black";
@@ -681,6 +681,7 @@ function renderItems(itemsArray) {
       dealOfferSticker.textContent = "Sale!";
       price.textContent = `Price: $${item.price * 0.75}, Was: $${item.price}`;
     }
+    console.log(currentCartItems);
 
     const isInCart = currentCartItems.some(
       (cartItem) => cartItem.id === item.id
@@ -944,6 +945,8 @@ const removeCartItem = (id) => {
   renderCart(updatedItems);
   renderCartIndicator();
   renderCartTotal(updatedItems);
+  renderCheckout(updatedItems);
+  renderCheckoutTotal(updatedItems);
 };
 
 //Event listener to clear cart button
@@ -967,35 +970,40 @@ clearCartButton.addEventListener("click", () => {
   }
 });
 
-const renderCartIndicator = () => {
+function renderCartIndicator() {
   const cartedItems = JSON.parse(localStorage.getItem("cartItems"));
-  if (cartedItems.length >= 1) {
-    cartIndicator.style.display = "block";
-    cartIndicator.textContent = cartedItems.length;
-  } else if (cartedItems.length === 0) {
-    cartIndicator.style.display = "none";
-    cartEmpty.style.display = "block";
+  console.log(cartItems);
+  if (cartedItems) {
+    if (cartedItems.length >= 1) {
+      cartIndicator.style.display = "block";
+      cartIndicator.textContent = cartedItems.length;
+    } else if (cartedItems.length === 0) {
+      cartIndicator.style.display = "none";
+      cartEmpty.style.display = "block";
+    }
   }
-};
+}
 
-const calculateCartTotal = (items) => {
+function calculateCartTotal(items) {
   return items.reduce((total, item) => {
     const itemPrice = item.onOffer ? item.price * 0.75 : item.price;
     return total + itemPrice;
   }, 0);
-};
+}
 
 const renderCartTotal = (items) => {
   const total = calculateCartTotal(items);
+  console.log(total);
+
   cartTotal.textContent = `Total: $${total}`;
 };
 
-const renderCheckoutTotal = (items) => {
+function renderCheckoutTotal(items) {
   const total = calculateCartTotal(items);
   const totalElement = document.querySelector(".checkout__total");
 
   if (totalElement) {
     totalElement.textContent = `Total: $${total.toFixed(2)}`;
   }
-};
+}
 // renderCartIndicator();
