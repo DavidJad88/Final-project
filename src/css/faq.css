@@ -6,39 +6,34 @@ main {
   justify-content: center;
   align-items: center;
   gap: var(--sp-large);
-  margin-top: var(--sp-large);
 }
 
-.description-container {
+.faq-info-container {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--col-bkg-secondary);
   width: 60%;
-  height: 50%;
+  max-width: 1200px;
+  height: 400px;
 
   padding: var(--sp-medium);
   border-radius: 16px;
   gap: var(--sp-large);
 }
-.description-container h1,
+.faq-info-container h1,
 span {
   font-family: MuseoModerno-regular;
 }
-.description__image-container {
+.faq-info__image-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
-  border-radius: 16px;
-}
-.description__image-container img {
-  width: 100%;
-  border-radius: 16px;
-  object-fit: cover;
+  width: 50%;
+  background-image: url("../assets/images/faq/faq-main.jpg");
 }
 
-.description__content-container {
+.faq-info__content-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,6 +49,7 @@ span {
 
 .accordion-container {
   width: 60%;
+  max-width: 1200px;
   height: auto;
   border-radius: 8px;
 }
