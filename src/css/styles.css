@@ -71,6 +71,11 @@ button:hover {
 .cart__empty {
   display: flex;
   margin-top: var(--sp-medium);
+  font-family: Roboto;
+}
+
+.cart__total {
+  font-family: Roboto;
 }
 
 .cart__content-container {

@@ -629,6 +629,18 @@ const expiryDateInput = document.querySelector("[name='expiration-date']");
 const cvvInput = document.querySelector("[name='cvv']");
 const formSubmitButton = document.querySelector(".form__submit");
 
+//calling accordion elements
+const titleContainers = document.querySelectorAll(
+  ".accordion__title-container"
+);
+const contentContainers = document.querySelectorAll(
+  ".accordion__content-container"
+);
+const accordionToggleLogos = document.querySelectorAll(
+  ".accordion__toggle-button-logo"
+);
+
+//variable for customer storage on order form submit
 const customers = JSON.parse(localStorage.getItem("customers")) || [];
 
 //rendering on page load
@@ -643,6 +655,16 @@ document.addEventListener("DOMContentLoaded", () => renderCheckout(cartItems));
 // }
 // });
 document.addEventListener("DOMContentLoaded", () => renderCartIndicator());
+
+//accordion function
+titleContainers.forEach((title, index) => {
+  title.addEventListener("click", () => {
+    contentContainers[index].classList.toggle(
+      "accordion__content-container--active"
+    );
+    accordionToggleLogos[index].classList.toggle("rotate-arrow");
+  });
+});
 
 // toggle active navbar link
 links.forEach((link) => {
