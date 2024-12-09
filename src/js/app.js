@@ -587,6 +587,7 @@ const items = [
 ];
 
 //calling navbar items
+const menuIcon = document.querySelector(".navbar__toggle-logo");
 const navbarLinksContainer = document.querySelector(".navbar__links");
 const links = document.querySelectorAll(".navbar__link");
 const cartIndicator = document.querySelector(".navbar__cart-badge");
@@ -651,6 +652,10 @@ links.forEach((link) => {
   });
 });
 
+menuIcon.addEventListener("click", () => {
+  navbarLinksContainer.classList.toggle("navbar__links--active");
+});
+
 //Function for rendering itens on DOMcontentloaded
 function renderItems(itemsArray) {
   if (itemGridContainer) {
@@ -692,6 +697,7 @@ function renderItems(itemsArray) {
       addToCartButton.textContent = "Added to cart";
       addToCartButton.style.backgroundColor = "lightgray";
       addToCartButton.style.color = "black";
+      cartContainer.classList.remove("cart-container--active");
     });
 
     const dealOfferSticker = document.createElement("div");
@@ -951,6 +957,19 @@ cartIcon.addEventListener("click", () => {
     const currentCartItems =
       JSON.parse(localStorage.getItem("cartItems")) || [];
     renderCart(currentCartItems);
+  }
+});
+
+//event listener to close cart on outside click
+document.addEventListener("click", (event) => {
+  if (cartContainer.classList.contains("cart-container--active")) {
+    const isClickInsideCart = cartContainer.contains(event.target);
+    const isClickOnCartIcon = cartIcon.contains(event.target);
+    const deleteButton = document.querySelectorAll(".content-item__delete");
+    const isClickOnDeleteButton = deleteButton.contains(event.target);
+    if (!isClickInsideCart && !isClickOnCartIcon && !isClickOnDeleteButton) {
+      cartContainer.classList.remove("cart-container--active");
+    }
   }
 });
 

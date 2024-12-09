@@ -23,19 +23,18 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 4;
 }
 
-.navbar__toggle-button {
-  background-color: transparent;
-  border: none;
-
-  z-index: 1;
+.navbar__toggle-button-container a {
+  cursor: default;
 }
 
 .navbar__toggle-logo {
   display: block;
   color: var(--col-txt-primary);
   visibility: hidden;
+  cursor: none;
 }
 
 .navbar__toggle-logo:hover {
@@ -71,6 +70,7 @@ header {
 
 .navbar__links-container {
   flex-grow: 1;
+  z-index: 1;
 }
 
 .navbar__links {
@@ -108,7 +108,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 3;
 }
 .navbar__cart {
   width: 32px;
@@ -129,4 +129,32 @@ header {
   background-color: red;
   border-radius: 50%;
   padding: 3px;
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar__toggle-button-container a {
+    cursor: pointer;
+  }
+  .navbar__toggle-logo {
+    visibility: visible;
+    cursor: pointer;
+  }
+  .navbar__links {
+    position: absolute;
+    top: 0;
+    left: -1000px;
+    width: 50%;
+    flex-direction: column;
+    transition: 1s;
+    background-color: var(--col-bkg-primary);
+  }
+  .navbar__links--active {
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .navbar__links {
+    width: 100%;
+  }
 }
