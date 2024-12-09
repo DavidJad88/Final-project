@@ -3,7 +3,7 @@ main {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: var(--sp-large);
 }
@@ -13,11 +13,11 @@ main {
   justify-content: center;
   align-items: center;
   background-color: var(--col-bkg-secondary);
-  width: 60%;
+  width: 90%;
   max-width: 1200px;
-  height: 400px;
-
+  height: 300px;
   padding: var(--sp-medium);
+  margin-top: var(--sp-large);
   border-radius: 16px;
   gap: var(--sp-large);
 }
@@ -25,30 +25,23 @@ main {
 span {
   font-family: MuseoModerno-regular;
 }
-.faq-info__image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  background-image: url("../assets/images/faq/faq-main.jpg");
-}
 
 .faq-info__content-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  width: 50%;
-  gap: var(--sp-large);
+  width: 100%;
+  gap: var(--sp-medium);
   margin-bottom: var(--sp-large);
-  padding: var(--sp-medium);
+  padding: var(--sp-large);
   border-radius: 16px;
 }
 
 /* accordion styles */
 
 .accordion-container {
-  width: 60%;
+  width: 90%;
   max-width: 1200px;
   height: auto;
   border-radius: 8px;
@@ -111,4 +104,19 @@ span {
 
 .rotate-arrow {
   transform: rotate(180deg);
+}
+
+@media screen and (max-width: 764px) {
+  .faq-info-container {
+    width: 95%;
+    line-height: 1.1;
+    height: 350px;
+  }
+
+  .faq-info__content-container {
+    gap: var(--sp-small);
+  }
+  .accordion-container {
+    width: 95%;
+  }
 }
