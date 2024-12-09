@@ -592,8 +592,11 @@ const navbarLinksContainer = document.querySelector(".navbar__links");
 const links = document.querySelectorAll(".navbar__link");
 const cartIndicator = document.querySelector(".navbar__cart-badge");
 
+const optionalSortContainer = document.querySelector(
+  ".items__options-container"
+);
+const toggleOptionsButton = document.querySelector(".items__toggle-options");
 // calling items grid
-
 const itemGridContainer = document.querySelector(".items__grid-container");
 
 const sortButtons = document.querySelectorAll(".sort-button");
@@ -992,6 +995,18 @@ document.addEventListener("click", (event) => {
     if (!isClickInsideCart && !isClickOnCartIcon && !isClickOnDeleteButton) {
       cartContainer.classList.remove("cart-container--active");
     }
+  }
+});
+
+// Event listener to toggle filter on smaller screens
+toggleOptionsButton.addEventListener("click", (e) => {
+  optionalSortContainer.classList.toggle("items__options-container--active");
+  if (
+    optionalSortContainer.classList.contains("items__options-container--active")
+  ) {
+    toggleOptionsButton.textContent = "Close";
+  } else {
+    toggleOptionsButton.textContent = "View Filters";
   }
 });
 

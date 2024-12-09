@@ -100,6 +100,10 @@ header {
 }
 
 /* cart icon styles */
+.navbar__cart {
+  width: 32px;
+  height: 32px;
+}
 
 .navbar__cart-container {
   position: relative;
@@ -109,10 +113,6 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 3;
-}
-.navbar__cart {
-  width: 32px;
-  height: 32px;
 }
 
 .navbar__cart-badge {

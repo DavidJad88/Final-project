@@ -67,7 +67,7 @@
     </header>
     <main>
       <section class="shop">
-        <div class="filter-container">
+        <div class="filter-container--desktop">
           <div class="filter__brands-container">
             <p>Filter by brand:</p>
             <button class="filter-button" data-sort="canon">Canon</button>
@@ -90,16 +90,42 @@
           </div>
         </div>
         <div class="items-container">
-          <div class="items__sort-buttons-container">
-            Sort by:
-            <button class="sort-button" data-sort="all">All products</button>
-            <button class="sort-button" data-sort="price-high">
-              Price high to low
-            </button>
-            <button class="sort-button" data-sort="price-low">
-              Price low to high
-            </button>
-            <button class="sort-button" data-sort="deal-offer">Deals</button>
+          <button class="items__toggle-options">View Filters</button>
+          <div class="items__options-container">
+            <div class="filter-container--smallscreen">
+              <div class="filter__brands-container--smallscreen">
+                <p>By brand:</p>
+                <button class="filter-button" data-sort="canon">Canon</button>
+                <button class="filter-button" data-sort="nikon">Nikon</button>
+                <button class="filter-button" data-sort="panasonic">
+                  Panasonic
+                </button>
+              </div>
+              <div class="filter__types-container--smallscreen">
+                <p>By type:</p>
+                <button class="filter-button" data-sort="cameras">
+                  Cameras
+                </button>
+                <button class="filter-button" data-sort="lenses">Lenses</button>
+                <button class="filter-button" data-sort="peripherals">
+                  Peripherals
+                </button>
+                <button class="filter-button" data-sort="all">
+                  Reset Filters
+                </button>
+              </div>
+            </div>
+            <div class="items__sort-buttons-container">
+              Sort by:
+              <button class="sort-button" data-sort="all">All products</button>
+              <button class="sort-button" data-sort="price-high">
+                Price high to low
+              </button>
+              <button class="sort-button" data-sort="price-low">
+                Price low to high
+              </button>
+              <button class="sort-button" data-sort="deal-offer">Deals</button>
+            </div>
           </div>
           <div class="items__grid-container"></div>
         </div>

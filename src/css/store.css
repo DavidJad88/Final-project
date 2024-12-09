@@ -14,7 +14,7 @@ main {
 }
 
 /* sorting-panel styles */
-.filter-container {
+.filter-container--desktop {
   width: 15%;
   display: flex;
   flex-direction: column;
@@ -24,9 +24,12 @@ main {
   text-align: center;
   background-color: var(--col-bkg-secondary);
 }
-.filter-button {
+.filter-container--desktop button {
   width: 75%;
-  height: 2rem;
+}
+
+.filter-container--smallscreen {
+  display: none;
 }
 
 .filter-button--active {
@@ -45,6 +48,7 @@ main {
   align-items: center;
   gap: var(--sp-medium);
 }
+
 .filter__types-container {
   display: flex;
   flex-direction: column;
@@ -62,18 +66,40 @@ main {
   width: 85%;
   min-height: 100vh;
   gap: var(--sp-medium);
+  position: relative;
+}
+.items__toggle-options {
+  display: none;
+}
+
+.items__options-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--sp-small);
+}
+
+.items__options-container--active {
+  display: flex;
+
+  flex-direction: column;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  left: 0;
+  width: 50%;
 }
 
 /* sort buttons styles */
 
 .items__sort-buttons-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   background-color: var(--col-bkg-secondary);
   padding: var(--sp-medium);
-  gap: var(--sp-large);
+  gap: var(--sp-small);
 }
 
 .sort-button--active {
@@ -87,7 +113,7 @@ main {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: var(--sp-medium);
-  padding: var(--sp-medium);
+  /* padding: var(--sp-medium); */
   justify-self: center;
   background-color: var(--col-bkg-primary);
 }
@@ -146,14 +172,6 @@ main {
 
 .cart-container {
   display: none;
-  /* position: fixed;
-  z-index: 1;
-  right: 0;
-  top: 0px;
-  width: 30%;
-  height: 100%;
-  overflow: auto;
-  background-color: var(--col-bkg-secondary); */
 }
 
 .cart-container--active {
@@ -217,4 +235,118 @@ main {
 
 .cart__clear-button {
   margin-bottom: var(--sp-medium);
+}
+
+@media screen and (max-width: 1493px) {
+  .filter-container--desktop {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: var(--sp-medium);
+    gap: var(--sp-medium);
+    text-align: center;
+    background-color: var(--col-bkg-secondary);
+  }
+  .filter-container--desktop button {
+    width: 80%;
+  }
+
+  .items-container {
+    display: flex;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1073px) {
+  .items-container {
+    width: 100%;
+  }
+  .filter-container--desktop {
+    display: none;
+  }
+  .filter-container--smallscreen {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-small);
+    width: 100%;
+    background-color: var(--col-bkg-secondary);
+    padding: var(--sp-medium);
+  }
+  .filter__brands-container--smallscreen {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: var(--sp-medium);
+  }
+
+  .filter__types-container--smallscreen {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .items__grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .filter-container--smallscreen {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-small);
+    width: 100%;
+    background-color: var(--col-bkg-secondary);
+    padding: var(--sp-small);
+  }
+  .filter__brands-container--smallscreen {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .filter__brands-container--smallscreen button {
+    font-size: var(--si-txt-small);
+  }
+
+  .filter__types-container--smallscreen {
+    flex-wrap: wrap;
+  }
+  .items__sort-buttons-container {
+    flex-wrap: wrap;
+
+    background-color: var(--col-bkg-secondary);
+    padding: var(--sp-small);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .items__options-container {
+    display: none;
+  }
+
+  .filter__brands-container--smallscreen {
+    flex-direction: column;
+  }
+  .filter__types-container--smallscreen {
+    flex-direction: column;
+  }
+  .filter__types-container--smallscreen button {
+    margin-top: var(--sp-medium);
+  }
+  .items__sort-buttons-container {
+    flex-direction: column;
+    gap: var(--sp-medium);
+  }
+  .items__toggle-options {
+    display: flex;
+    margin-left: auto;
+  }
+  .items__options-container--active {
+    display: block;
+    position: fixed;
+  }
 }
