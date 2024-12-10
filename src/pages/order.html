@@ -78,6 +78,7 @@
               name="first-name"
               required
               placeholder="First Name"
+              maxlength="50"
             />
 
             <label for="last-name">Last Name:</label>
@@ -87,6 +88,7 @@
               name="last-name"
               required
               placeholder="Last Name"
+              maxlength="50"
             />
           </fieldset>
           <fieldset class="form__section">
@@ -98,6 +100,7 @@
               name="street-address"
               required
               placeholder="Street Address"
+              maxlength="50"
             />
 
             <label for="city">City:</label>
@@ -107,6 +110,7 @@
               name="city"
               required
               placeholder="City"
+              maxlength="50"
             />
 
             <label for="state">State/Province:</label>
@@ -116,15 +120,17 @@
               name="state"
               required
               placeholder="State/Province"
+              maxlength="50"
             />
 
             <label for="zip">ZIP/Postal Code:</label>
             <input
-              type="text"
+              type="number"
               id="zip"
               name="zip"
               required
               placeholder="ZIP/Postal Code"
+              maxlength="10"
             />
 
             <label for="country">Country:</label>
@@ -179,15 +185,18 @@
               name="billing-name"
               required
               placeholder="Name on Card"
+              minlength="2"
+              maxlength="50"
             />
 
             <label for="card-number">Card Number:</label>
             <input
-              type="text"
+              type="number"
               id="card-number"
               name="card-number"
               required
               placeholder="Card Number"
+              minlength="16"
               maxlength="16"
             />
 
@@ -200,7 +209,15 @@
             />
 
             <label for="cvv">CVV:</label>
-            <input type="text" id="cvv" name="cvv" required placeholder="CVV" />
+            <input
+              type="number"
+              id="cvv"
+              name="cvv"
+              required
+              placeholder="CVV"
+              minlength="3"
+              maxlength="3"
+            />
           </fieldset>
 
           <button class="form__submit" type="submit">Confirm and Order</button>
