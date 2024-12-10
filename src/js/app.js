@@ -651,14 +651,7 @@ const customers = JSON.parse(localStorage.getItem("customers")) || [];
 //rendering on page load
 document.addEventListener("DOMContentLoaded", () => renderItems(items));
 document.addEventListener("DOMContentLoaded", () => renderCheckout(cartItems));
-// {
-// const path = window.location.pathname;
-// if (path.includes("order.html")) {
-//   const currentCartItems =
-//     JSON.parse(localStorage.getItem("cartItems")) || [];
-//   renderCheckout(currentCartItems);
-// }
-// });
+
 document.addEventListener("DOMContentLoaded", () => renderCartIndicator());
 
 //accordion function
@@ -1047,16 +1040,6 @@ function renderCartIndicator() {
   }
 }
 
-//Rendering cart on cart icon click
-cartIcon.addEventListener("click", () => {
-  cartContainer.classList.toggle("cart-container--active");
-  if (cartContainer.classList.contains("cart-container--active")) {
-    const currentCartItems =
-      JSON.parse(localStorage.getItem("cartItems")) || [];
-    renderCart(currentCartItems);
-  }
-});
-
 //checkout form submission
 
 const storeCustomerData = () => {
@@ -1115,14 +1098,18 @@ const storeCustomerData = () => {
   console.log("Customer data saved:", customer);
 };
 
-// Event listener for form submission
-form.addEventListener("submit", (e) => {
-  e.preventDefault(); // Prevent the default form submission behavior
-  storeCustomerData();
+//Rendering cart on cart icon click
+cartIcon.addEventListener("click", () => {
+  cartContainer.classList.toggle("cart-container--active");
+  if (cartContainer.classList.contains("cart-container--active")) {
+    const currentCartItems =
+      JSON.parse(localStorage.getItem("cartItems")) || [];
+    renderCart(currentCartItems);
+  }
+  optionalSortContainer.classList.remove("items__options-container--active");
 });
-
 // Event listener to toggle filter on smaller screens
-toggleOptionsButton.addEventListener("click", (e) => {
+toggleOptionsButton.addEventListener("click", () => {
   optionalSortContainer.classList.toggle("items__options-container--active");
   if (
     optionalSortContainer.classList.contains("items__options-container--active")
@@ -1131,4 +1118,10 @@ toggleOptionsButton.addEventListener("click", (e) => {
   } else {
     toggleOptionsButton.textContent = "View Filters";
   }
+});
+
+// Event listener for form submission
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevent the default form submission behavior
+  storeCustomerData();
 });
