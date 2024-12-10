@@ -1098,6 +1098,12 @@ const storeCustomerData = () => {
   console.log("Customer data saved:", customer);
 };
 
+// Event listener for form submission
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Prevent the default form submission behavior
+  storeCustomerData();
+});
+
 //Rendering cart on cart icon click
 cartIcon.addEventListener("click", () => {
   cartContainer.classList.toggle("cart-container--active");
@@ -1107,7 +1113,9 @@ cartIcon.addEventListener("click", () => {
     renderCart(currentCartItems);
   }
   optionalSortContainer.classList.remove("items__options-container--active");
+  toggleOptionsButton.textContent = "View Filters";
 });
+
 // Event listener to toggle filter on smaller screens
 toggleOptionsButton.addEventListener("click", () => {
   optionalSortContainer.classList.toggle("items__options-container--active");
@@ -1118,10 +1126,4 @@ toggleOptionsButton.addEventListener("click", () => {
   } else {
     toggleOptionsButton.textContent = "View Filters";
   }
-});
-
-// Event listener for form submission
-form.addEventListener("submit", (e) => {
-  e.preventDefault(); // Prevent the default form submission behavior
-  storeCustomerData();
 });
