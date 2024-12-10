@@ -119,3 +119,15 @@ button:hover {
 .cart__clear-button {
   margin-bottom: var(--sp-medium);
 }
+
+@media screen and (max-width: 1200px) {
+  .cart-container--active {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .cart-container--active {
+    width: 100%;
+  }
+}

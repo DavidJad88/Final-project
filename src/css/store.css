@@ -170,7 +170,7 @@ main {
 
 /* Cart styles */
 
-.cart-container {
+/* .cart-container {
   display: none;
 }
 
@@ -235,7 +235,7 @@ main {
 
 .cart__clear-button {
   margin-bottom: var(--sp-medium);
-}
+} */
 
 @media screen and (max-width: 1493px) {
   .filter-container--desktop {
