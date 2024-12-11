@@ -1106,14 +1106,11 @@ const storeCustomerData = () => {
     },
   };
 
-  // Add the customer data to the array
   const customers = JSON.parse(localStorage.getItem("customers")) || [];
   customers.push(customer);
 
-  // Save back to localStorage
   localStorage.setItem("customers", JSON.stringify(customers));
 
-  // Optionally clear the form and cart after submission
   form.reset();
   localStorage.setItem("cartItems", JSON.stringify([]));
   renderCart([]);
@@ -1122,6 +1119,18 @@ const storeCustomerData = () => {
 
   console.log("Customer data saved:", customer);
 };
+
+// Event listener to toggle filter on smaller screens
+toggleOptionsButton.addEventListener("click", () => {
+  optionalSortContainer.classList.toggle("items__options-container--active");
+  if (
+    optionalSortContainer.classList.contains("items__options-container--active")
+  ) {
+    toggleOptionsButton.textContent = "Close";
+  } else {
+    toggleOptionsButton.textContent = "View Filters";
+  }
+});
 
 //Rendering cart on cart icon click
 cartIcon.addEventListener("click", () => {
@@ -1137,18 +1146,6 @@ cartIcon.addEventListener("click", () => {
 
 // Event listener for form submission
 form.addEventListener("submit", (e) => {
-  e.preventDefault(); // Prevent the default form submission behavior
+  e.preventDefault();
   storeCustomerData();
-});
-
-// Event listener to toggle filter on smaller screens
-toggleOptionsButton.addEventListener("click", () => {
-  optionalSortContainer.classList.toggle("items__options-container--active");
-  if (
-    optionalSortContainer.classList.contains("items__options-container--active")
-  ) {
-    toggleOptionsButton.textContent = "Close";
-  } else {
-    toggleOptionsButton.textContent = "View Filters";
-  }
 });
