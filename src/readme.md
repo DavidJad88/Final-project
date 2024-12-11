@@ -17,6 +17,7 @@ Otherwise, much functionality was derived from class workshops and the like, but
 
 Netlify:
 https://final-project-sem1-2024.netlify.app
+
 Github
 https://github.com/DavidJad88/Final-project
 
