@@ -100,10 +100,6 @@ header {
 }
 
 /* cart icon styles */
-.navbar__cart {
-  width: 32px;
-  height: 32px;
-}
 
 .navbar__cart-container {
   position: relative;
@@ -115,6 +111,10 @@ header {
   z-index: 3;
 }
 
+.navbar__cart {
+  width: 32px;
+  height: 32px;
+}
 .navbar__cart-badge {
   display: none;
   font-family: Roboto;

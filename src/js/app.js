@@ -592,14 +592,17 @@ const navbarLinksContainer = document.querySelector(".navbar__links");
 const links = document.querySelectorAll(".navbar__link");
 const cartIndicator = document.querySelector(".navbar__cart-badge");
 
-//calling
-const optionalSortContainer = document.querySelector(
-  ".items__options-container"
-);
 const toggleOptionsButton = document.querySelector(".items__toggle-options");
+
 // calling items grid
 const itemGridContainer = document.querySelector(".items__grid-container");
 
+//calling smallscreen filter buttons
+const optionalSortContainer = document.querySelector(
+  ".items__options-container"
+);
+
+//calling sort and filter buttons
 const sortButtons = document.querySelectorAll(".sort-button");
 const filterButtons = document.querySelectorAll(".filter-button");
 
@@ -692,6 +695,7 @@ function renderItems(itemsArray) {
 
     const itemImage = document.createElement("img");
     itemImage.src = item.imageUrl;
+    itemImage.alt = `${item.brand} ${item.modelName}`;
 
     const ItemDescriptionContainer = document.createElement("div");
     ItemDescriptionContainer.classList.add("item__description-container");
