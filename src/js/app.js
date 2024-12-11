@@ -1065,6 +1065,18 @@ function renderCartIndicator() {
   }
 }
 
+//Rendering cart on cart icon click
+cartIcon.addEventListener("click", () => {
+  cartContainer.classList.toggle("cart-container--active");
+  if (cartContainer.classList.contains("cart-container--active")) {
+    const currentCartItems =
+      JSON.parse(localStorage.getItem("cartItems")) || [];
+    renderCart(currentCartItems);
+  }
+  optionalSortContainer.classList.remove("items__options-container--active");
+  toggleOptionsButton.textContent = "View Filters";
+});
+
 //checkout form submission
 
 const storeCustomerData = () => {
@@ -1120,6 +1132,12 @@ const storeCustomerData = () => {
   console.log("Customer data saved:", customer);
 };
 
+// Event listener for form submission
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  storeCustomerData();
+});
+
 // Event listener to toggle filter on smaller screens
 toggleOptionsButton.addEventListener("click", () => {
   optionalSortContainer.classList.toggle("items__options-container--active");
@@ -1130,22 +1148,4 @@ toggleOptionsButton.addEventListener("click", () => {
   } else {
     toggleOptionsButton.textContent = "View Filters";
   }
-});
-
-//Rendering cart on cart icon click
-cartIcon.addEventListener("click", () => {
-  cartContainer.classList.toggle("cart-container--active");
-  if (cartContainer.classList.contains("cart-container--active")) {
-    const currentCartItems =
-      JSON.parse(localStorage.getItem("cartItems")) || [];
-    renderCart(currentCartItems);
-  }
-  optionalSortContainer.classList.remove("items__options-container--active");
-  toggleOptionsButton.textContent = "View Filters";
-});
-
-// Event listener for form submission
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  storeCustomerData();
 });
