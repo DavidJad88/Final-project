@@ -898,6 +898,27 @@ const renderCart = (items) => {
   }
 };
 
+//Event listener to clear cart button
+clearCartButton.addEventListener("click", () => {
+  const confirmClearCart = window.confirm(
+    "Are you sure you want to clear the cart? This action cannot be undone."
+  );
+
+  if (confirmClearCart) {
+    cartItems.length = 0;
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    renderCart(cartItems);
+    renderCartIndicator();
+    renderItems(items);
+    sortButtons.forEach((button) =>
+      button.classList.remove("sort-button--active")
+    );
+    filterButtons.forEach((button) =>
+      button.classList.remove("filter-button--active")
+    );
+  }
+});
+
 //function to render the cart at checkout
 const renderCheckout = (items) => {
   if (checkoutCartContainer) {
