@@ -38,7 +38,6 @@ main {
   padding: var(--sp-medium);
   border-radius: 16px;
   line-height: 1.6;
-
   border-color: lightgray;
 }
 
@@ -58,14 +57,14 @@ input {
   height: auto;
   display: flex;
   flex-direction: column;
-  width: 40%;
-  /* min-height: 100vh; */
-  align-items: center;
   justify-content: start;
-  border-color: 2px solid black;
-  border-radius: 8px;
-  padding-top: var(--sp-large);
-  background-color: var(--col-bkg-primary);
+  align-items: center;
+  align-self: start;
+  width: 40%;
+  margin-top: 18px;
+  border: 2px solid #b8b8b8;
+  border-radius: 1rem;
+  padding: var(--sp-medium);
 }
 
 .checkout__review {
@@ -83,7 +82,7 @@ input {
 }
 
 .checkout-cart__items-container {
-  height: inherit;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
